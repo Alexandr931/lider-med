@@ -972,6 +972,10 @@ a:visited {
     display: none;
 }
 
+.footer__menu-descr {
+  display: block;
+}
+
 .main-menu__sub-item {
     max-width: 272px;
 }
@@ -3308,6 +3312,13 @@ a:visited {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+    }
+
+    .footer__menu-descr {
+        position: initial;
+        width: initial;
+        height: initial;
+        display: block;
     }
 
     .dropdown-open svg {
