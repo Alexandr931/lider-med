@@ -109,7 +109,7 @@
                         <button class="burger open-menu">
                             <span class="burger__line"> </span>
                         </button>
-                        <button class="btn_search popup" data-path="site-search">
+                        <button class="btn_search popup-btn" data-path="site-search">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <rect width="32" height="32" rx="16" fill="#EEF6F9" />
@@ -133,6 +133,42 @@
             </div>
         </div>
         <div class="header_bottom">
+            <div class="header-top header-top_mobile">
+                <div class="header-top__container container">
+                    <div class="header__wrapper-head">
+                        <div class="header_logo">
+                            <a href="#" class="logo_link">
+                                <img class="logo-img" src="assets/img/LiberMED.svg" alt="">
+                            </a>
+                            <p class="logo_descr">Наркологический медицинский центр в Самаре</p>
+                        </div>
+                        <div class="header__btn-hiden">
+                            <button class="burger open-menu">
+                                <span class="burger__line"> </span>
+                            </button>
+                            <button class="btn_search popup-btn" data-path="site-search">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="32" height="32" rx="16" fill="#EEF6F9" />
+                                    <path
+                                        d="M23.6867 22.563L20.7496 19.6497C21.8897 18.2282 22.4418 16.4239 22.2924 14.6078C22.143 12.7917 21.3035 11.1019 19.9465 9.88578C18.5895 8.66967 16.8181 8.01972 14.9965 8.06956C13.175 8.11941 11.4418 8.86526 10.1533 10.1538C8.86477 11.4423 8.11892 13.1755 8.06907 14.997C8.01923 16.8185 8.66919 18.5899 9.8853 19.947C11.1014 21.304 12.7912 22.1435 14.6073 22.2929C16.4234 22.4423 18.2277 21.8902 19.6492 20.7501L22.5625 23.6634C22.6361 23.7376 22.7237 23.7965 22.8202 23.8367C22.9166 23.8769 23.0201 23.8976 23.1246 23.8976C23.2291 23.8976 23.3326 23.8769 23.4291 23.8367C23.5255 23.7965 23.6131 23.7376 23.6867 23.6634C23.8294 23.5158 23.9092 23.3185 23.9092 23.1132C23.9092 22.9079 23.8294 22.7106 23.6867 22.563ZM15.208 20.7501C14.1119 20.7501 13.0405 20.4251 12.1292 19.8162C11.2178 19.2072 10.5076 18.3418 10.0881 17.3291C9.66868 16.3165 9.55894 15.2023 9.77277 14.1273C9.98659 13.0523 10.5144 12.0649 11.2894 11.2899C12.0644 10.5149 13.0518 9.98708 14.1268 9.77326C15.2018 9.55943 16.3161 9.66917 17.3287 10.0886C18.3413 10.508 19.2068 11.2183 19.8157 12.1297C20.4246 13.041 20.7496 14.1124 20.7496 15.2084C20.7496 16.6782 20.1658 18.0877 19.1265 19.127C18.0872 20.1663 16.6777 20.7501 15.208 20.7501Z"
+                                        fill="#9D9D9D" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="header__btn-grup btn-grup">
+                        <button class="header__btn-gren btn popup-btn" data-path="send">Задать вопрос</button>
+                        <button class="header__btn btn_color popup-btn" data-path="callback">Заказать звонок</button>
+                    </div>
+                    <div class="phone">
+                        <a class="header__phone-link phone-link" href="tel:+79877548405">
+                            +7 (987) 754-84-05
+                        </a>
+                        <p class="phone__text">Работаем ежедневно, 24/7</p>
+                    </div>
+                </div>
+            </div>
             <div class="header_bottom__container container">
                 <nav class="header__nav main-menu">
                     <ul class="main-menu__list">
@@ -146,6 +182,14 @@
                                         fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
                                 </svg>
                             </a>
+                            <button class="dropdown-open">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.77145 4.56466C4.37147 5.04962 3.62853 5.04962 3.22855 4.56466L1.01946 1.88629C0.481499 1.23405 0.945443 0.25 1.79091 0.25L6.20909 0.25C7.05455 0.25 7.5185 1.23404 6.98054 1.88628L4.77145 4.56466Z"
+                                        fill="#ADCFD2" />
+                                </svg>
+                            </button>
                             <ul class="main-menu__sub-list">
                                 <li class="main-menu__sub-item menu-item">
                                     <a href="" class="main-menu__sub-link">
@@ -216,6 +260,14 @@
                                         fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
                                 </svg>
                             </a>
+                            <button class="dropdown-open">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.77145 4.56466C4.37147 5.04962 3.62853 5.04962 3.22855 4.56466L1.01946 1.88629C0.481499 1.23405 0.945443 0.25 1.79091 0.25L6.20909 0.25C7.05455 0.25 7.5185 1.23404 6.98054 1.88628L4.77145 4.56466Z"
+                                        fill="#ADCFD2" />
+                                </svg>
+                            </button>
                             <ul class="main-menu__sub-list">
                                 <li class="main-menu__sub-item menu-item">
                                     <a href="" class="main-menu__sub-link">
@@ -286,6 +338,14 @@
                                         fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
                                 </svg>
                             </a>
+                            <button class="dropdown-open">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.77145 4.56466C4.37147 5.04962 3.62853 5.04962 3.22855 4.56466L1.01946 1.88629C0.481499 1.23405 0.945443 0.25 1.79091 0.25L6.20909 0.25C7.05455 0.25 7.5185 1.23404 6.98054 1.88628L4.77145 4.56466Z"
+                                        fill="#ADCFD2" />
+                                </svg>
+                            </button>
                             <ul class="main-menu__sub-list">
                                 <li class="main-menu__sub-item menu-item">
                                     <a href="" class="main-menu__sub-link">
@@ -356,6 +416,14 @@
                                         fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
                                 </svg>
                             </a>
+                            <button class="dropdown-open">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.77145 4.56466C4.37147 5.04962 3.62853 5.04962 3.22855 4.56466L1.01946 1.88629C0.481499 1.23405 0.945443 0.25 1.79091 0.25L6.20909 0.25C7.05455 0.25 7.5185 1.23404 6.98054 1.88628L4.77145 4.56466Z"
+                                        fill="#ADCFD2" />
+                                </svg>
+                            </button>
                             <ul class="main-menu__sub-list">
                                 <li class="main-menu__sub-item menu-item">
                                     <a href="" class="main-menu__sub-link">
@@ -426,6 +494,14 @@
                                         fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
                                 </svg>
                             </a>
+                            <button class="dropdown-open">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.77145 4.56466C4.37147 5.04962 3.62853 5.04962 3.22855 4.56466L1.01946 1.88629C0.481499 1.23405 0.945443 0.25 1.79091 0.25L6.20909 0.25C7.05455 0.25 7.5185 1.23404 6.98054 1.88628L4.77145 4.56466Z"
+                                        fill="#ADCFD2" />
+                                </svg>
+                            </button>
                             <ul class="main-menu__sub-list">
                                 <li class="main-menu__sub-item menu-item">
                                     <a href="" class="main-menu__sub-link">
@@ -507,6 +583,10 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="header__btn-grup header__btn-grup_mobile btn-grup">
+                        <button class="header__btn-gren btn popup-btn" data-path="send">Задать вопрос</button>
+                        <button class="header__btn btn_color popup-btn" data-path="callback">Заказать звонок</button>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -780,7 +860,7 @@
                         </div>
                         <div class="footer__email email">
                             <p class="email__gray_descr gray_descr">E-mail:</p>
-                            <p class="section-descr">info@libermed.ru</p>
+                            <a href="malito:info@libermed.ru" class="section-descr">info@libermed.ru</a>
                         </div>
                     </div>
                     <div class="footer__payment payment">
@@ -800,8 +880,37 @@
                     </div>
                 </div>
                 <div class="footer__bootm grid-5-1">
-                    <div class="footer__menu">
-                        <p class="footer__menu-descr section-descr">О нас</p>
+                    <div class="footer__menu dropdown-wrapper">
+                        <p class="footer__menu-descr dropdown-open section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a> 
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu dropdown-wrapper">
+                        <p class="footer__menu-descr dropdown-open section-descr">О нас</p>
                         <ul class="footer__menu-list">
                             <li class="footer__menu-item">
                                 <a class="footer__link gray_descr" href="#">пункт меню</a>
@@ -829,8 +938,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer__menu">
-                        <p class="footer__menu-descr section-descr">О нас</p>
+                    <div class="footer__menu dropdown-wrapper">
+                        <p class="footer__menu-descr dropdown-open section-descr">О нас</p>
                         <ul class="footer__menu-list">
                             <li class="footer__menu-item">
                                 <a class="footer__link gray_descr" href="#">пункт меню</a>
@@ -858,8 +967,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer__menu">
-                        <p class="footer__menu-descr section-descr">О нас</p>
+                    <div class="footer__menu dropdown-wrapper">
+                        <p class="footer__menu-descr dropdown-open section-descr">О нас</p>
                         <ul class="footer__menu-list">
                             <li class="footer__menu-item">
                                 <a class="footer__link gray_descr" href="#">пункт меню</a>
@@ -887,37 +996,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="footer__menu">
-                        <p class="footer__menu-descr section-descr">О нас</p>
-                        <ul class="footer__menu-list">
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__link gray_descr" href="#">пункт меню</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer__menu">
-                        <p class="footer__menu-descr section-descr">О нас</p>
+                    <div class="footer__menu dropdown-wrapper">
+                        <p class="footer__menu-descr dropdown-open section-descr">О нас</p>
                         <ul class="footer__menu-list">
                             <li class="footer__menu-item">
                                 <a class="footer__link gray_descr" href="#">пункт меню</a>
@@ -1128,7 +1208,7 @@
                     </svg>
                 </button>
                 <p class="popup__title">
-                  Поиск
+                    Поиск
                 </p>
                 <div class="popup__search search">
                     <input type="text" placeholder="Найдите свой город" class="popup__input">

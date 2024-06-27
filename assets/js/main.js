@@ -487,7 +487,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dropdownBtnsList.length > 0) {
         dropdownBtnsList.forEach((elem) => {
             elem.addEventListener('click', () => {
-                elem.closest('.menu-item').classList.toggle('active');
+                if (elem.closest('.menu-item')) {
+                    elem.closest('.menu-item').classList.toggle('active');
+                }
+                if (elem.closest('.dropdown-wrapper')) {
+                    console.log('text');
+                    elem.closest('.dropdown-wrapper').classList.toggle('active');
+                }
             })
         })
     }
