@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/build/swiper.css">
+    <link rel="stylesheet" href="assets/css/build/fancybox.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/build/swiper.js"></script>
+    <script defer src="assets/js/build/mask.js"></script>
+    <script defer src="assets/js/build/fancybox.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <title>Страница услуги</title>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            let flagMap = false;
+            document.addEventListener('scroll', function () {
+                const blockMap = document.getElementById('map');
+                const posTop = blockMap.getBoundingClientRect().top;
+
+                if (posTop < window.innerHeight && !flagMap) {
+                    if (!document.querySelector('[src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"]')) {
+                        const script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU';
+                        document.head.appendChild(script);
+                    }
+
+                    ymaps.ready(init);
+
+                    function init() {
+                        const map = document.querySelector('#map');
+
+                        if (map) {
+                            var myMap = new ymaps.Map("map", {
+                                center: [47.228163, 39.714641],
+                                zoom: 14,
+                            });
+
+                            var myPlacemark = new ymaps.Placemark([47.228163, 39.714641], {}, {
+                                iconLayout: 'default#image',
+                                iconImageHref: 'assets/img/icons/map-marker.svg',
+                                iconImageSize: [38, 43],
+                            });
+
+                            myMap.geoObjects.add(myPlacemark);
+                            myMap.behaviors.disable('scrollZoom');
+                        }
+                    }
+
+                    flagMap = true;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top__container container">
+            <div class="top__location">
+                <button class="top__adres popup-btn" data-path="cities">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.99968 1.3335C5.41967 1.3335 3.33301 3.42016 3.33301 6.00016C3.33301 9.50016 7.99968 14.6668 7.99968 14.6668C7.99968 14.6668 12.6663 9.50016 12.6663 6.00016C12.6663 3.42016 10.5797 1.3335 7.99968 1.3335ZM7.99968 7.66683C7.55765 7.66683 7.13372 7.49124 6.82116 7.17867C6.5086 6.86611 6.33301 6.44219 6.33301 6.00016C6.33301 5.55814 6.5086 5.13421 6.82116 4.82165C7.13372 4.50909 7.55765 4.3335 7.99968 4.3335C8.4417 4.3335 8.86563 4.50909 9.17819 4.82165C9.49075 5.13421 9.66634 5.55814 9.66634 6.00016C9.66634 6.44219 9.49075 6.86611 9.17819 7.17867C8.86563 7.49124 8.4417 7.66683 7.99968 7.66683Z"
+                                fill="#94C6C3" fill-opacity="0.4" />
+                        </svg>
+                    </span>
+                    <p class="top__adres-descr">г. Самара, ул. Ульяновская, 52</p>
+                </button>
+                <form class="form_locations">
+                    <input type="text" placeholder="поиск" class="search__input">
+                    <button type="submit" class="search__btn">
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.2129 8.62223C11.0443 7.55047 11.4361 6.20226 11.3086 4.85187C11.1812 3.50149 10.5441 2.25038 9.52691 1.35307C8.50975 0.455756 7.18896 -0.0203547 5.83323 0.0215974C4.47749 0.0635494 3.18866 0.620413 2.22894 1.5789C1.26837 2.53805 0.709691 3.82738 0.666736 5.18414C0.623781 6.5409 1.09979 7.86299 1.99776 8.88098C2.89572 9.89897 4.14807 10.5363 5.49959 10.663C6.8511 10.7897 8.20008 10.3963 9.2716 9.5629L9.30027 9.5929L12.1283 12.4216C12.1902 12.4835 12.2637 12.5326 12.3447 12.5662C12.4256 12.5997 12.5123 12.6169 12.5999 12.6169C12.6875 12.6169 12.7743 12.5997 12.8552 12.5662C12.9361 12.5326 13.0097 12.4835 13.0716 12.4216C13.1335 12.3596 13.1827 12.2861 13.2162 12.2052C13.2497 12.1242 13.267 12.0375 13.267 11.9499C13.267 11.8623 13.2497 11.7756 13.2162 11.6946C13.1827 11.6137 13.1335 11.5402 13.0716 11.4782L10.2429 8.65023C10.2332 8.64063 10.2232 8.63129 10.2129 8.62223ZM8.82894 2.52223C9.20534 2.89255 9.50469 3.33373 9.70974 3.82032C9.91478 4.30691 10.0215 4.82929 10.0236 5.35731C10.0258 5.88534 9.92334 6.40856 9.72227 6.89681C9.52119 7.38505 9.22544 7.82865 8.85207 8.20203C8.47869 8.5754 8.03509 8.87115 7.54684 9.07223C7.0586 9.2733 6.53537 9.37572 6.00735 9.37357C5.47933 9.37142 4.95695 9.26474 4.47036 9.0597C3.98377 8.85466 3.54259 8.5553 3.17227 8.1789C2.43222 7.42669 2.01937 6.41253 2.02367 5.35731C2.02797 4.3021 2.44906 3.29133 3.19521 2.54517C3.94137 1.79902 4.95214 1.37793 6.00735 1.37363C7.06256 1.36934 8.07673 1.78218 8.82894 2.52223Z"
+                                fill="white" fill-opacity="0.6" />
+                        </svg>
+
+                    </button>
+                </form>
+            </div>
+            <div class="top__visible">
+                <button id="specialButton" class="visible_btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.00033 6C7.46989 6 6.96118 6.21071 6.58611 6.58579C6.21104 6.96086 6.00033 7.46957 6.00033 8C6.00033 8.53043 6.21104 9.03914 6.58611 9.41421C6.96118 9.78929 7.46989 10 8.00033 10C8.53076 10 9.03947 9.78929 9.41454 9.41421C9.78961 9.03914 10.0003 8.53043 10.0003 8C10.0003 7.46957 9.78961 6.96086 9.41454 6.58579C9.03947 6.21071 8.53076 6 8.00033 6ZM8.00033 11.3333C7.11627 11.3333 6.26842 10.9821 5.6433 10.357C5.01818 9.7319 4.66699 8.88406 4.66699 8C4.66699 7.11595 5.01818 6.2681 5.6433 5.64298C6.26842 5.01786 7.11627 4.66667 8.00033 4.66667C8.88438 4.66667 9.73223 5.01786 10.3573 5.64298C10.9825 6.2681 11.3337 7.11595 11.3337 8C11.3337 8.88406 10.9825 9.7319 10.3573 10.357C9.73223 10.9821 8.88438 11.3333 8.00033 11.3333ZM8.00033 3C4.66699 3 1.82033 5.07333 0.666992 8C1.82033 10.9267 4.66699 13 8.00033 13C11.3337 13 14.1803 10.9267 15.3337 8C14.1803 5.07333 11.3337 3 8.00033 3Z"
+                            fill="white" fill-opacity="0.4" />
+                    </svg>
+                </button>
+                <p class="visible-descr">Версия для слабовидящих</p>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="header-top">
+            <div class="header-top__container container">
+                <div class="header__wrapper-head">
+                    <div class="header_logo">
+                        <a href="#" class="logo_link">
+                            <img class="logo-img" src="assets/img/LiberMED.svg" alt="">
+                        </a>
+                        <p class="logo_descr">Наркологический медицинский центр в Самаре</p>
+                    </div>
+                    <div class="header__btn-hiden">
+                        <button class="burger open-menu">
+                            <span class="burger__line"> </span>
+                        </button>
+                        <button class="btn_search popup-btn" data-path="site-search">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" rx="16" fill="#EEF6F9" />
+                                <path
+                                    d="M23.6867 22.563L20.7496 19.6497C21.8897 18.2282 22.4418 16.4239 22.2924 14.6078C22.143 12.7917 21.3035 11.1019 19.9465 9.88578C18.5895 8.66967 16.8181 8.01972 14.9965 8.06956C13.175 8.11941 11.4418 8.86526 10.1533 10.1538C8.86477 11.4423 8.11892 13.1755 8.06907 14.997C8.01923 16.8185 8.66919 18.5899 9.8853 19.947C11.1014 21.304 12.7912 22.1435 14.6073 22.2929C16.4234 22.4423 18.2277 21.8902 19.6492 20.7501L22.5625 23.6634C22.6361 23.7376 22.7237 23.7965 22.8202 23.8367C22.9166 23.8769 23.0201 23.8976 23.1246 23.8976C23.2291 23.8976 23.3326 23.8769 23.4291 23.8367C23.5255 23.7965 23.6131 23.7376 23.6867 23.6634C23.8294 23.5158 23.9092 23.3185 23.9092 23.1132C23.9092 22.9079 23.8294 22.7106 23.6867 22.563ZM15.208 20.7501C14.1119 20.7501 13.0405 20.4251 12.1292 19.8162C11.2178 19.2072 10.5076 18.3418 10.0881 17.3291C9.66868 16.3165 9.55894 15.2023 9.77277 14.1273C9.98659 13.0523 10.5144 12.0649 11.2894 11.2899C12.0644 10.5149 13.0518 9.98708 14.1268 9.77326C15.2018 9.55943 16.3161 9.66917 17.3287 10.0886C18.3413 10.508 19.2068 11.2183 19.8157 12.1297C20.4246 13.041 20.7496 14.1124 20.7496 15.2084C20.7496 16.6782 20.1658 18.0877 19.1265 19.127C18.0872 20.1663 16.6777 20.7501 15.208 20.7501Z"
+                                    fill="#9D9D9D" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="header__btn-grup btn-grup">
+                    <button class="header__btn-gren btn popup-btn" data-path="send">Задать вопрос</button>
+                    <button class="header__btn btn_color popup-btn" data-path="callback">Заказать звонок</button>
+                </div>
+                <div class="phone">
+                    <a class="header__phone-link phone-link" href="tel:+79877548405">
+                        +7 (987) 754-84-05
+                    </a>
+                    <p class="phone__text">Работаем ежедневно, 24/7</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="header_bottom__container container">
+                <nav class="header__nav main-menu">
+                    <ul class="main-menu__list">
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Алкоголизм</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Запой</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Наркомания</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Реабилитация</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">О нас</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Стоимость</span>
+                            </a>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Отзывы</span>
+                            </a>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Блог</span>
+                            </a>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Контакты</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="banner">
+            <div class="banner__container container">
+                <div class="banner__container-wrapper">
+                    <div class="banner__block-left">
+                        <ul class="breadcrumbs">
+                            <li class="">
+                                <a class="breadcrumbs_link" href="#">
+                                    <p class="gray_descr">Главная</p>
+                                </a>
+                            </li>
+                            <p class="gray_descr">/</p>
+                            <li class="">
+                                <span class="breadcrumbs_link breadcrumbs_link_active" href="#">
+                                    <p class="gray_descr">Страница услуг</p>
+                                </span>
+                            </li>
+                        </ul>
+                        <h1 class="banner-title"><span class="title_color">Лечение алкоголизма</span>
+                            в Самаре и Самарской области
+                        </h1>
+                        <p class="banner__section-descr section-descr">
+                            Но сделанные на базе интернет-аналитики выводы будут смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Задача организации, в особенности же повышение уровня гражданского сознания говорит о возможностях соответствующих условий активизации.
+                        </p>
+                        <div class="banner__internal-block">
+                            <div class="banner__internal-block-item">
+                                <img class="banner__internal-block-img" src="assets/img/section/banner/icon-1.svg"
+                                    alt="">
+                                <p class="banner__internal-block_descr">
+                                    Полная анонимность
+                                </p>
+                            </div>
+                            <div class="banner__internal-block-item">
+                                <img class="banner__internal-block-img" src="assets/img/section/banner/icon-2.svg"
+                                    alt="">
+                                <p class="banner__internal-block_descr">
+                                    Работаем круглосуточно
+                                </p>
+                            </div>
+                            <div class="banner__internal-block-item">
+                                <img class="banner__internal-block-img" src="assets/img/section/banner/icon-3.svg"
+                                    alt="">
+                                <p class="banner__internal-block_descr">
+                                    Бесплатная консультация
+                                </p>
+                            </div>
+                        </div>
+                        <div class="banner__btn-grup">
+                            <div class="banner__price-button">
+                                <button class="banner-btn btn">Оставить заявку</button>
+                                <div class="banner__price">
+                                    <p class="gray_descr">Стоимость</p>
+                                    <p class="banner__price-num price-num">от 1200 ₽</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner__block-right">
+                       <picture class="banner__picture">
+                        <img class="banner__img" src="assets/img/section/banner/banner-services.png" alt="">
+                       </picture>
+                    </div>
+                </div>
+                <div class="banner__block-bottom block-bottom">
+                    <img class="block-bottom__img" src="assets/img/img-fon.png" alt="">
+                    <p class="block-bottom__title">
+                        Получить консультацию
+                    </p>
+                    <p class="block-bottom__descr section-descr">
+                        Заполните форму и мы свяжемся с вами в течении 15 минут
+                    </p>
+                    <form class="block-bottom__form" action="#">
+                        <input class="block-bottom__input" type="text" placeholder="Ваше имя">
+                        <input class="block-bottom__input" type="tel:+79999999999" placeholder="+7 (999) 999-99-99">
+                        <button class="btn popup-btn" data-path="callback">Заказать звонок</button>
+                    </form>
+                    <p class="gray_descr">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
+                </div>
+            </div>
+        </section>
+        <section class="about-us section-offset section-offset_padding about-us_color">
+            <div class="about-us__container container">
+                <h2 class="about-us__title section-title">Почему выбирают нас</h2>
+                <div class="about-us__container-wrapper grid-3-20">
+                    <div class="about-us__block">
+                        <img class="about-us__img" src="assets/img/section/about-us/saving.svg" alt="">
+                        <p class="about-us__large-descr large-descr">
+                            Доступные цены
+                        </p>
+                        <p class="about-us__width-descr width-descr">
+                            Широкий выбор услуг по низкой цене, гибкая система скидок
+                        </p>
+                    </div>
+                    <div class="about-us__block">
+                        <img class="about-us__img" src="assets/img/section/about-us/customer-support .svg" alt="">
+                        <p class="about-us__large-descr large-descr">
+                            Работаем 24/7
+                        </p>
+                        <p class="about-us__width-descr width-descr">
+                            Оказываем наркологическую помощь круглосуточно по всему городу
+                        </p>
+                    </div>
+                    <div class="about-us__block">
+                        <img class="about-us__img" src="assets/img/section/about-us/ambulance .svg" alt="">
+                        <p class="about-us__large-descr large-descr">Экстренный выезд</p>
+                        <p class="about-us__width-descr width-descr">
+                            Всегда готовая бригада выедет на дом в течении получаса
+                        </p>
+                    </div>
+                    <div class="about-us__block">
+                        <img class="about-us__img" src="assets/img/section/about-us/secret-identity.svg" alt="">
+                        <p class="about-us__large-descr large-descr">Анонимность</p>
+                        <p class="about-us__width-descr width-descr">
+                            Сохраняем и гарантируем конфиденциальность всех клиентов
+                        </p>
+                    </div>
+                    <div class="about-us__block">
+                        <img class="about-us__img" src="assets/img/section/about-us/hospital-bed.svg" alt="">
+                        <p class="about-us__large-descr large-descr">Стационар</p>
+                        <p class="about-us__width-descr width-descr">
+                            Лечение в стационарных палатах с круглосуточным наблюдением
+                        </p>
+                    </div>
+                    <div class="about-us__block">
+                        <img class="about-us__img" src="assets/img/section/about-us/massage.svg" alt="">
+                        <p class="about-us__large-descr large-descr">Реабилитация</p>
+                        <p class="about-us__width-descr width-descr">
+                            Проводим социальную реабилитацию в собственном частном центре
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="content__container container">
+                <div class="content__container-wrapper">
+                    <div class="content__wrapper">
+                        <div class="content__left-block">
+                            <h3 class="content-title">Содержание статьи</h3>
+                            <ol class="content__list">
+                                <li class="content__list-item">
+                                    <a class="content-descr" href="#">Тактика лечения алкогольной зависимости в наркологическом центре</a>
+                                </li>
+                                <li class="content__list-item">
+                                    <a class="content-descr" href="#">Когда требуется лечение алкоголизма</a>
+                                </li>
+                                <li class="content__list-item">
+                                    <a class="content-descr" href="#">Снятие запоя на дому</a>
+                                </li>
+                                <li class="content__list-item">
+                                    <a class="content-descr" href="#">Почему при запое лучше обратиться в частную клинику</a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="chek-artivle">
+                            <picture class="chek-artivle__picture">
+                                <img class="chek-artivle__img" src="assets/img/section/content/doctors.png" alt="">
+                            </picture>
+                            <div class="chek-artivle__info">
+                                <p class="chek-artivle__doctor-descr content-descr">Статью проверил</p>
+                                <p class="chek-artivle__gray_descr gray_descr">Психиатр-нарколог</p>
+                                <p class="chek-artivle__doctor section-descr">Карпова Татьяна Викторовна</p>
+                                <div class="chek-artivle__date">
+                                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 3H3C2.17157 3 1.5 3.67157 1.5 4.5V13.5C1.5 14.3284 2.17157 15 3 15H13C13.8284 15 14.5 14.3284 14.5 13.5V4.5C14.5 3.67157 13.8284 3 13 3Z" stroke="#1E1E1E" stroke-linejoin="round"/>
+                                        <path d="M9.25 8.5C9.66421 8.5 10 8.16421 10 7.75C10 7.33579 9.66421 7 9.25 7C8.83579 7 8.5 7.33579 8.5 7.75C8.5 8.16421 8.83579 8.5 9.25 8.5Z" fill="#1E1E1E"/>
+                                        <path d="M11.75 8.5C12.1642 8.5 12.5 8.16421 12.5 7.75C12.5 7.33579 12.1642 7 11.75 7C11.3358 7 11 7.33579 11 7.75C11 8.16421 11.3358 8.5 11.75 8.5Z" fill="#1E1E1E"/>
+                                        <path d="M9.25 11C9.66421 11 10 10.6642 10 10.25C10 9.83579 9.66421 9.5 9.25 9.5C8.83579 9.5 8.5 9.83579 8.5 10.25C8.5 10.6642 8.83579 11 9.25 11Z" fill="#1E1E1E"/>
+                                        <path d="M11.75 11C12.1642 11 12.5 10.6642 12.5 10.25C12.5 9.83579 12.1642 9.5 11.75 9.5C11.3358 9.5 11 9.83579 11 10.25C11 10.6642 11.3358 11 11.75 11Z" fill="#1E1E1E"/>
+                                        <path d="M4.25 11C4.66421 11 5 10.6642 5 10.25C5 9.83579 4.66421 9.5 4.25 9.5C3.83579 9.5 3.5 9.83579 3.5 10.25C3.5 10.6642 3.83579 11 4.25 11Z" fill="#1E1E1E"/>
+                                        <path d="M6.75 11C7.16421 11 7.5 10.6642 7.5 10.25C7.5 9.83579 7.16421 9.5 6.75 9.5C6.33579 9.5 6 9.83579 6 10.25C6 10.6642 6.33579 11 6.75 11Z" fill="#1E1E1E"/>
+                                        <path d="M4.25 13.5C4.66421 13.5 5 13.1642 5 12.75C5 12.3358 4.66421 12 4.25 12C3.83579 12 3.5 12.3358 3.5 12.75C3.5 13.1642 3.83579 13.5 4.25 13.5Z" fill="#1E1E1E"/>
+                                        <path d="M6.75 13.5C7.16421 13.5 7.5 13.1642 7.5 12.75C7.5 12.3358 7.16421 12 6.75 12C6.33579 12 6 12.3358 6 12.75C6 13.1642 6.33579 13.5 6.75 13.5Z" fill="#1E1E1E"/>
+                                        <path d="M9.25 13.5C9.66421 13.5 10 13.1642 10 12.75C10 12.3358 9.66421 12 9.25 12C8.83579 12 8.5 12.3358 8.5 12.75C8.5 13.1642 8.83579 13.5 9.25 13.5Z" fill="#1E1E1E"/>
+                                        <path d="M4 2V3M12 2V3" stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14.5 5.5H1.5" stroke="#1E1E1E" stroke-linejoin="round"/>
+                                        </svg>
+                                    <p class="num">12.04.2024</p> 
+                                     <p class="date-red">ред. 8.05.2024</p>                                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <section class="application-3 section-offset">
+        <div class="application__container container">
+            <div class="application__container-wrapper">
+                <img class="application__img-fon" src="assets/img/img-fon.png" alt="">
+                <div class="application__connection-block">
+                    <h3 class="application-title section-title">Записаться онлайн</h3>
+                    <p class="application__descr section-descr">Заполните форму и мы свяжемся с вами в течении 15 минут</p>
+                    <form class="application__from grid-3-1" action="#">
+                        <input class="application_input" type="name" placeholder="Ваше имя">
+                        <input class="application_input" type="text" placeholder="+7(999)9999999">
+                        <button class="application-btn btn">Заказать звонок</button>
+                    </form>
+                    <p class="gray_descr">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section class="postpone section-offset">
+            <div class="postpone__container container">
+                <h2 class="section-title">Когда нельзя откладывать</h2>
+                <div class="postpone__container-wrapper content-body">
+                        <picture class="text-block__picture">
+                            <img class="text-block__img" src="assets/img/section/text-block/text-img-1.png" alt="">
+                        </picture>
+                        <p class="text-block__descr">
+                            Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения.
+                        </p>
+                        <p class="text-block__descr">
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <p class="text-block__descr">
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <p>
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <picture class="text-block__picture-2">
+                            <img class="text-block__img" src="assets/img/section/text-block/text-img-2.png" alt="">
+                        </picture>
+                        <h3>Тут может быть подзаголовок</h3>
+                        <p>
+                            Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения.
+                        </p>
+                        <p>
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <p>
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <picture class="text-block__picture text-block__picture-3">
+                            <img class="text-block__img" src="assets/img/section/text-block/text-img-3.png" alt="">
+                        </picture>
+                        <p>
+                            Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения.</p>
+                        <p>
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <p>
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        </p>
+                        <p>
+                            Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                        
+                        </p>
+                </div>
+            </div>
+        </section>
+        <section class="drinking section-offset section-offset_padding">
+            <div class="drinking__container container">
+                <h2 class="drinking__title section-title">Снятие запоя на дому</h2>
+                <div class="drinking__container-wrapper content-body">
+                    <p>
+                        Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения. Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения.
+                    </p>
+                    <video class="drinking__video" src=""></video>
+                    <p>
+                        Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения. Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия.
+                    </p>
+                    <p>
+                        Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения. 
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="drinking-clinic section-offset">
+            <div class="drinking-clinic__container container">
+                <h2 class="drinking-clinic__title section-title">Почему при запое лучше обратиться в частную клинику</h2>
+                <div class="drinking-clinic__container-wrapper">
+                   <div class="drinking-clinic__text">
+                    <p class="drinking-clinic__descr section-descr">
+                        Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                    </p>
+                    <p class="drinking-clinic__descr section-descr">
+                        Следует отметить, что современная методология разработки позволяет оценить значение системы массового участия. Для современного мира дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение анализа существующих паттернов поведения. Ясность нашей позиции очевидна: перспективное планирование создаёт предпосылки для инновационных методов управления процессами.
+                    </p>
+                   </div>
+                    <picture class="drinking-clinic__picture">
+                        <img class="drinking-clinic__img" src="assets/img/section/drinking-clinic/drinking-clinic-img.png" alt="">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        <section class="similar-services section-offset section-offset_padding">
+            <div class="similar-services__container container">
+                <h2 class="similar-services__title section-title">Похожие услуги</h2>
+                <div class="similar-services__container__wrapper grid-3-20-20">
+                    <div class="similar-services__block">
+                        <picture class="similar-services__picture">
+                            <img class="similar-services__img" src="assets/img/section/similar-services/similar-services-img-1.png" alt="">
+                        </picture>
+                        <button class="similar-services__btn">Вывод из запоя в стационаре</button>
+                    </div>
+                    <div class="similar-services__block">
+                        <picture class="similar-services__picture">
+                            <img class="similar-services__img" src="assets/img/section/similar-services/similar-services-2.png" alt="">
+                        </picture>
+                        <button class="similar-services__btn">Вывод из запоя в стационаре</button>
+                    </div>
+                    <div class="similar-services__block">
+                        <picture class="similar-services__picture">
+                            <img class="similar-services__img" src="assets/img/section/similar-services/similar-services-3.png" alt="">
+                        </picture>
+                        <button class="similar-services__btn">Вывод из запоя в стационаре</button>
+                    </div>
+                    <div class="similar-services__block">
+                        <picture class="similar-services__picture">
+                            <img class="similar-services__img" src="assets/img/section/similar-services/similar-services-4.png" alt="">
+                        </picture>
+                        <button class="similar-services__btn">Вывод из запоя в стационаре</button>
+                    </div>
+                    <div class="similar-services__block">
+                        <picture class="similar-services__picture">
+                            <img class="similar-services__img" src="assets/img/section/similar-services/similar-services-5.png" alt="">
+                        </picture>
+                        <button class="similar-services__btn">Вывод из запоя в стационаре</button>
+                    </div>
+                    <div class="similar-services__block">
+                        <picture class="similar-services__picture">
+                            <img class="similar-services__img" src="assets/img/section/similar-services/similar-services-6.png" alt="">
+                        </picture>
+                        <button class="similar-services__btn">Вывод из запоя в стационаре</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="our-center section-offset">
+            <div class="our-center__container container">
+                <h2 class="our-center__title section-title">Наш центр</h2>
+                <p class="our-center__descr section-descr">
+                    Добро пожаловать в фотогалерею наркологической клиники LiberMED в Самаре. Здесь вы можете увидеть, в
+                    какой обстановке наши пациенты борются с зависимостью. Мы предоставляем фотографии, сделанные внутри
+                    нашей наркологической клиники, чтобы вы могли близко и лично заглянуть в мир лечения и реабилитации
+                    алко- и наркозависимых
+                </p>
+                <div class="our-center__slider-container slider-container">
+                    <div class="our-center__slider swiper slider-2">
+                        <div class="our-center__slider-wrapper swiper-wrapper">
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center-2.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center-2.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center-2.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center.png" alt="">
+                            </picture>
+                            <picture class="our-center__slide swiper-slide">
+                                <img class="our-center__slide-img" src="assets/img/section/our-center/our-center-2.png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="slider-navigation slider-navigation_static">
+                        <button class="slider-btn slider-btn_prev">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M13.6464 25.3536C13.4512 25.1583 13.4512 24.8417 13.6464 24.6464L16.8284 21.4645C17.0237 21.2692 17.3403 21.2692 17.5355 21.4645C17.7308 21.6597 17.7308 21.9763 17.5355 22.1716L14.7071 25L17.5355 27.8284C17.7308 28.0237 17.7308 28.3403 17.5355 28.5355C17.3403 28.7308 17.0237 28.7308 16.8284 28.5355L13.6464 25.3536ZM36 25.5H14V24.5H36V25.5Z" fill="#94C6C3"/>
+                                </svg>                                
+                        </button>
+                        <div class="slider-scrollbar"></div>
+                        <button class="slider-btn slider-btn_next">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" transform="matrix(-1 0 0 1 50 0)" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M36.3536 25.3536C36.5488 25.1583 36.5488 24.8417 36.3536 24.6464L33.1716 21.4645C32.9763 21.2692 32.6597 21.2692 32.4645 21.4645C32.2692 21.6597 32.2692 21.9763 32.4645 22.1716L35.2929 25L32.4645 27.8284C32.2692 28.0237 32.2692 28.3403 32.4645 28.5355C32.6597 28.7308 32.9763 28.7308 33.1716 28.5355L36.3536 25.3536ZM14 25.5H36V24.5H14V25.5Z" fill="#94C6C3"/>
+                                </svg>                                                          
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section class="specialists section-offset">
+            <div class="specialists__container container">
+                <h2 class="specialists-title section-title">Наши специалисты</h2>
+                <p class="specialists__descr section-descr">Курс подбирается индивидуально, врачом наркологом. Мы
+                    поможем подобрать подходящий вариант</p>
+                <div class="specialists__slider-container slider-container">
+                    <div class="specialists__slider swiper slider-4">
+                        <div class="specialists__slider-wrapper swiper-wrapper">
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                            <a href="#" class="specialists__slide swiper-slide photo-zoom">
+                                <div class="specialists__img-div">
+                                    <img src="assets/img/section/specialists/doctors-img.png" alt=""
+                                        class="specialists__slide-img">
+                                    <div class="specialists__experience-div">
+                                        <p class="specialists__experience-descr">Опыт 22 года</p>
+                                    </div>
+                                </div>
+                                <div class="specialists__doctor">
+                                    <p class="specialists__doctor-width-descr width-descr">Главный врач</p>
+                                    <p class="specialists__doctor-large-descr large-descr">Иван Петров</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider-navigation slider-navigation_static">
+                        <button class="slider-btn slider-btn_prev">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M13.6464 25.3536C13.4512 25.1583 13.4512 24.8417 13.6464 24.6464L16.8284 21.4645C17.0237 21.2692 17.3403 21.2692 17.5355 21.4645C17.7308 21.6597 17.7308 21.9763 17.5355 22.1716L14.7071 25L17.5355 27.8284C17.7308 28.0237 17.7308 28.3403 17.5355 28.5355C17.3403 28.7308 17.0237 28.7308 16.8284 28.5355L13.6464 25.3536ZM36 25.5H14V24.5H36V25.5Z" fill="#94C6C3"/>
+                                </svg>                                
+                        </button>
+                        <div class="slider-scrollbar"></div>
+                        <button class="slider-btn slider-btn_next">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" transform="matrix(-1 0 0 1 50 0)" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M36.3536 25.3536C36.5488 25.1583 36.5488 24.8417 36.3536 24.6464L33.1716 21.4645C32.9763 21.2692 32.6597 21.2692 32.4645 21.4645C32.2692 21.6597 32.2692 21.9763 32.4645 22.1716L35.2929 25L32.4645 27.8284C32.2692 28.0237 32.2692 28.3403 32.4645 28.5355C32.6597 28.7308 32.9763 28.7308 33.1716 28.5355L36.3536 25.3536ZM14 25.5H36V24.5H14V25.5Z" fill="#94C6C3"/>
+                                </svg>                                                          
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="documents section-offset">
+            <div class="documents__container container">
+                <h2 class="documents__title section-title">
+                    Лицензии
+                </h2>
+                <p class="documents__descr section-descr">Вы можете самостоятельно проверить нашу лицензию на
+                    официальном сайте Росздравнадзора
+                    <a class="link-color" href="(https://roszdravnadzor.gov.ru/services/licenses)">(https://roszdravnadzor.gov.ru/services/licenses)</a> и ввести в поиске номер
+                    лицензии Л041-01184-63/00291993
+                </p>
+                <div class="documents__slider-container slider-container">
+                    <div class="documents__slider swiper slider-4">
+                        <div class="documents__slider-wrapper swiper-wrapper">
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>   
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>   
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>   
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>   
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>   
+                            <a href="assets/img/section/documents/document.png" data-fancybox="documents"
+                                class="documents__slide swiper-slide photo-zoom">
+                                <img src="assets/img/section/documents/document.png" alt=""
+                                    class="documents__slide-img">                                
+                            </a>                           
+                        </div>
+                    </div>
+                    <div class="slider-navigation slider-navigation_static">
+                        <button class="slider-btn slider-btn_prev">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M13.6464 25.3536C13.4512 25.1583 13.4512 24.8417 13.6464 24.6464L16.8284 21.4645C17.0237 21.2692 17.3403 21.2692 17.5355 21.4645C17.7308 21.6597 17.7308 21.9763 17.5355 22.1716L14.7071 25L17.5355 27.8284C17.7308 28.0237 17.7308 28.3403 17.5355 28.5355C17.3403 28.7308 17.0237 28.7308 16.8284 28.5355L13.6464 25.3536ZM36 25.5H14V24.5H36V25.5Z" fill="#94C6C3"/>
+                                </svg>                                
+                        </button>
+                        <div class="slider-scrollbar"></div>
+                        <button class="slider-btn slider-btn_next">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" transform="matrix(-1 0 0 1 50 0)" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M36.3536 25.3536C36.5488 25.1583 36.5488 24.8417 36.3536 24.6464L33.1716 21.4645C32.9763 21.2692 32.6597 21.2692 32.4645 21.4645C32.2692 21.6597 32.2692 21.9763 32.4645 22.1716L35.2929 25L32.4645 27.8284C32.2692 28.0237 32.2692 28.3403 32.4645 28.5355C32.6597 28.7308 32.9763 28.7308 33.1716 28.5355L36.3536 25.3536ZM14 25.5H36V24.5H14V25.5Z" fill="#94C6C3"/>
+                                </svg>                                                          
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="application-2 section-offset ">
+            <div class="application__container container">
+                <div class="application__container-wrapper">
+                    <img class="application__img-fon" src="assets/img/img-fon.png" alt="">
+                    <div class="application__connection-block">
+                        <h3 class="application-title section-title">Консультация! Это бесплатно</h3>
+                        <p class="application__descr section-descr">Позвоните прямо сейчас по номеру, чтобы анонимно
+                            получить услуги врачей и психологов наркологической клиники</p>
+                        <form class="application__from grid-3-1" action="#">
+                            <input class="application_input" type="name" placeholder="Ваше имя">
+                            <input class="application_input" type="text" placeholder="+7(999)9999999">
+                            <button class="application-btn btn">Заказать звонок</button>
+                        </form>
+                        <p class="gray_descr">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
+                    </div>
+                    <picture class="application__picture">
+                        <img class="application__img" src="assets/img/section/application/application-img.png" alt="">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="stocks section-offset">
+            <div class="stocks__container container">
+                <h2 class="stocks-title section-title">Наши специалисты</h2>
+                <div class="stocks__slider-container slider-container">
+                    <div class="stocks__slider swiper slider-3">
+                        <div class="stocks__slider-wrapper swiper-wrapper">
+                        <div class="stocks__slide swiper-slide">                     
+                    <div class="stocks__free-slide stocks__slide swiper-slide">
+                        <div class="stocks__interial-block">
+                            <p class="stocks__large-descr large-descr">Бесплатная&nbspконсультация</p>
+                            <p class="stocks__descr section-descr">Просто позвоните по телефону или отправьте заявку с сайта. Наш специалист свяжется с вами как можно быстрее</p>
+                        </div>
+                        <div class="stocks__connection">
+                            <a class="phone-link phone-link-color" href="tel:+79877548405">
+                                +7 (987) 754-84-05
+                            </a>
+                            <button class="stocks__btn btn">Обратититься</button>
+                        </div>
+                    </div>
+                    <div class="stocks-sale__slide stocks__slide swiper-slide">
+                        <div class="stocks-interial-block">
+                            <p class="stocks-sale__large-descr large-descr">Реабилитация со скидкой 15%</p>
+                            <p class="stocks-sale__descr section-descr">Просто позвоните по телефону или отправьте заявку с
+                                сайта. Наш специалист свяжется с вами как можно быстрее</p>
+                        </div>
+                        <div class="stocks__connection">
+                            <a class="phone-link" href="tel:+79877548405">
+                                +7 (987) 754-84-05
+                            </a>
+                            <button class="btn">Обратититься</button>
+                        </div>
+                    </div>
+                    <div class="stocks__slide-rehabilitation stocks__slide swiper-slide">
+                        <div class="stocks__interial-block">
+                            <p class="stocks__large-descr large-descr">Бесплатная консультация</p>
+                            <p class="stocks__descr section-descr">Просто позвоните по телефону или отправьте заявку с
+                                сайта. Наш специалист свяжется с вами как можно быстрее</p>
+                        </div>
+                        <div class="stocks__connection">
+                            <a class="phone-link phone-link-color" href="tel:+79877548405">
+                                +7 (987) 754-84-05
+                            </a>
+                            <button class="stocks__btn btn">Обратититься</button>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    <div class="slider-navigation slider-navigation_static">
+                        <button class="slider-btn slider-btn_prev">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" stroke="#94C6C3" stroke-width="1.5" />
+                                <path
+                                    d="M13.6464 25.3536C13.4512 25.1583 13.4512 24.8417 13.6464 24.6464L16.8284 21.4645C17.0237 21.2692 17.3403 21.2692 17.5355 21.4645C17.7308 21.6597 17.7308 21.9763 17.5355 22.1716L14.7071 25L17.5355 27.8284C17.7308 28.0237 17.7308 28.3403 17.5355 28.5355C17.3403 28.7308 17.0237 28.7308 16.8284 28.5355L13.6464 25.3536ZM36 25.5H14V24.5H36V25.5Z"
+                                    fill="#94C6C3" />
+                            </svg>
+                        </button>
+                        <div class="slider-scrollbar"></div>
+                        <button class="slider-btn slider-btn_next">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" transform="matrix(-1 0 0 1 50 0)" stroke="#94C6C3"
+                                    stroke-width="1.5" />
+                                <path
+                                    d="M36.3536 25.3536C36.5488 25.1583 36.5488 24.8417 36.3536 24.6464L33.1716 21.4645C32.9763 21.2692 32.6597 21.2692 32.4645 21.4645C32.2692 21.6597 32.2692 21.9763 32.4645 22.1716L35.2929 25L32.4645 27.8284C32.2692 28.0237 32.2692 28.3403 32.4645 28.5355C32.6597 28.7308 32.9763 28.7308 33.1716 28.5355L36.3536 25.3536ZM14 25.5H36V24.5H14V25.5Z"
+                                    fill="#94C6C3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section class="articles section-offset">
+            <div class="articles__container container">
+                <h2 class="articles-title section-title">Наши специалисты</h2>
+                <div class="articles__slider-container slider-container">
+                    <div class="articles__slider swiper slider-3">
+                        <div class="articles__slider-wrapper swiper-wrapper">
+                        <div class="articles__block articles__slide swiper-slide">
+                                <div class="articles__block-img">
+                                    <img class="articles-img" src="assets/img/section/articles/articles-img.png" alt="">
+                                </div>
+                                <div class="articles__block-text">
+                                    <p class="articles__large-descr large-descr">Лечение солевой зависимости</p>
+                                    <p class="articles__descr width-descr">Но сделанные на базе интернет-аналитики
+                                        выводы будут смешаны с не уникальными данными до степени совершенной
+                                        неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
+                                    <button class="articles-btn btn">Читать статью</button>
+                                    <div class="articles__data-info">
+                                        <p class="num">
+                                            12.04.2024
+                                        </p>
+                                        <div class="views">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 6.75C8.40326 6.75 7.83097 6.98705 7.40901 7.40901C6.98705 7.83097 6.75 8.40326 6.75 9C6.75 9.59674 6.98705 10.169 7.40901 10.591C7.83097 11.0129 8.40326 11.25 9 11.25C9.59674 11.25 10.169 11.0129 10.591 10.591C11.0129 10.169 11.25 9.59674 11.25 9C11.25 8.40326 11.0129 7.83097 10.591 7.40901C10.169 6.98705 9.59674 6.75 9 6.75ZM9 12.75C8.00544 12.75 7.05161 12.3549 6.34835 11.6517C5.64509 10.9484 5.25 9.99456 5.25 9C5.25 8.00544 5.64509 7.05161 6.34835 6.34835C7.05161 5.64509 8.00544 5.25 9 5.25C9.99456 5.25 10.9484 5.64509 11.6517 6.34835C12.3549 7.05161 12.75 8.00544 12.75 9C12.75 9.99456 12.3549 10.9484 11.6517 11.6517C10.9484 12.3549 9.99456 12.75 9 12.75ZM9 3.375C5.25 3.375 2.0475 5.7075 0.75 9C2.0475 12.2925 5.25 14.625 9 14.625C12.75 14.625 15.9525 12.2925 17.25 9C15.9525 5.7075 12.75 3.375 9 3.375Z"
+                                                    fill="#2F6B75" />
+                                            </svg>
+
+                                            <p class="num">550</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="articles__block articles__slide swiper-slide">
+                                <div class="articles__block-img">
+                                    <img class="articles-img" src="assets/img/section/articles/articles-img.png" alt="">
+                                </div>
+                                <div class="articles__block-text">
+                                    <p class="articles__large-descr large-descr">Лечение солевой зависимости</p>
+                                    <p class="articles__descr width-descr">Но сделанные на базе интернет-аналитики
+                                        выводы будут смешаны с не уникальными данными до степени совершенной
+                                        неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
+                                    <button class="articles-btn btn">Читать статью</button>
+                                    <div class="articles__data-info">
+                                        <p class="num">
+                                            12.04.2024
+                                        </p>
+                                        <div class="views">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 6.75C8.40326 6.75 7.83097 6.98705 7.40901 7.40901C6.98705 7.83097 6.75 8.40326 6.75 9C6.75 9.59674 6.98705 10.169 7.40901 10.591C7.83097 11.0129 8.40326 11.25 9 11.25C9.59674 11.25 10.169 11.0129 10.591 10.591C11.0129 10.169 11.25 9.59674 11.25 9C11.25 8.40326 11.0129 7.83097 10.591 7.40901C10.169 6.98705 9.59674 6.75 9 6.75ZM9 12.75C8.00544 12.75 7.05161 12.3549 6.34835 11.6517C5.64509 10.9484 5.25 9.99456 5.25 9C5.25 8.00544 5.64509 7.05161 6.34835 6.34835C7.05161 5.64509 8.00544 5.25 9 5.25C9.99456 5.25 10.9484 5.64509 11.6517 6.34835C12.3549 7.05161 12.75 8.00544 12.75 9C12.75 9.99456 12.3549 10.9484 11.6517 11.6517C10.9484 12.3549 9.99456 12.75 9 12.75ZM9 3.375C5.25 3.375 2.0475 5.7075 0.75 9C2.0475 12.2925 5.25 14.625 9 14.625C12.75 14.625 15.9525 12.2925 17.25 9C15.9525 5.7075 12.75 3.375 9 3.375Z"
+                                                    fill="#2F6B75" />
+                                            </svg>
+
+                                            <p class="num">550</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="articles__block articles__slide swiper-slide">
+                                <div class="articles__block-img">
+                                    <img class="articles-img" src="assets/img/section/articles/articles-img.png" alt="">
+                                </div>
+                                <div class="articles__block-text">
+                                    <p class="articles__large-descr large-descr">Лечение солевой зависимости</p>
+                                    <p class="articles__descr width-descr">Но сделанные на базе интернет-аналитики
+                                        выводы будут смешаны с не уникальными данными до степени совершенной
+                                        неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
+                                    <button class="articles-btn btn">Читать статью</button>
+                                    <div class="articles__data-info">
+                                        <p class="num">
+                                            12.04.2024
+                                        </p>
+                                        <div class="views">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 6.75C8.40326 6.75 7.83097 6.98705 7.40901 7.40901C6.98705 7.83097 6.75 8.40326 6.75 9C6.75 9.59674 6.98705 10.169 7.40901 10.591C7.83097 11.0129 8.40326 11.25 9 11.25C9.59674 11.25 10.169 11.0129 10.591 10.591C11.0129 10.169 11.25 9.59674 11.25 9C11.25 8.40326 11.0129 7.83097 10.591 7.40901C10.169 6.98705 9.59674 6.75 9 6.75ZM9 12.75C8.00544 12.75 7.05161 12.3549 6.34835 11.6517C5.64509 10.9484 5.25 9.99456 5.25 9C5.25 8.00544 5.64509 7.05161 6.34835 6.34835C7.05161 5.64509 8.00544 5.25 9 5.25C9.99456 5.25 10.9484 5.64509 11.6517 6.34835C12.3549 7.05161 12.75 8.00544 12.75 9C12.75 9.99456 12.3549 10.9484 11.6517 11.6517C10.9484 12.3549 9.99456 12.75 9 12.75ZM9 3.375C5.25 3.375 2.0475 5.7075 0.75 9C2.0475 12.2925 5.25 14.625 9 14.625C12.75 14.625 15.9525 12.2925 17.25 9C15.9525 5.7075 12.75 3.375 9 3.375Z"
+                                                    fill="#2F6B75" />
+                                            </svg>
+
+                                            <p class="num">550</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="articles__block articles__slide swiper-slide">
+                                <div class="articles__block-img">
+                                    <img class="articles-img" src="assets/img/section/articles/articles-img.png" alt="">
+                                </div>
+                                <div class="articles__block-text">
+                                    <p class="articles__large-descr large-descr">Лечение солевой зависимости</p>
+                                    <p class="articles__descr width-descr">Но сделанные на базе интернет-аналитики
+                                        выводы будут смешаны с не уникальными данными до степени совершенной
+                                        неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
+                                    <button class="articles-btn btn">Читать статью</button>
+                                    <div class="articles__data-info">
+                                        <p class="num">
+                                            12.04.2024
+                                        </p>
+                                        <div class="views">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 6.75C8.40326 6.75 7.83097 6.98705 7.40901 7.40901C6.98705 7.83097 6.75 8.40326 6.75 9C6.75 9.59674 6.98705 10.169 7.40901 10.591C7.83097 11.0129 8.40326 11.25 9 11.25C9.59674 11.25 10.169 11.0129 10.591 10.591C11.0129 10.169 11.25 9.59674 11.25 9C11.25 8.40326 11.0129 7.83097 10.591 7.40901C10.169 6.98705 9.59674 6.75 9 6.75ZM9 12.75C8.00544 12.75 7.05161 12.3549 6.34835 11.6517C5.64509 10.9484 5.25 9.99456 5.25 9C5.25 8.00544 5.64509 7.05161 6.34835 6.34835C7.05161 5.64509 8.00544 5.25 9 5.25C9.99456 5.25 10.9484 5.64509 11.6517 6.34835C12.3549 7.05161 12.75 8.00544 12.75 9C12.75 9.99456 12.3549 10.9484 11.6517 11.6517C10.9484 12.3549 9.99456 12.75 9 12.75ZM9 3.375C5.25 3.375 2.0475 5.7075 0.75 9C2.0475 12.2925 5.25 14.625 9 14.625C12.75 14.625 15.9525 12.2925 17.25 9C15.9525 5.7075 12.75 3.375 9 3.375Z"
+                                                    fill="#2F6B75" />
+                                            </svg>
+
+                                            <p class="num">550</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="articles__block articles__slide swiper-slide">
+                                <div class="articles__block-img">
+                                    <img class="articles-img" src="assets/img/section/articles/articles-img.png" alt="">
+                                </div>
+                                <div class="articles__block-text">
+                                    <p class="articles__large-descr large-descr">Лечение солевой зависимости</p>
+                                    <p class="articles__descr width-descr">Но сделанные на базе интернет-аналитики
+                                        выводы будут смешаны с не уникальными данными до степени совершенной
+                                        неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
+                                    <button class="articles-btn btn">Читать статью</button>
+                                    <div class="articles__data-info">
+                                        <p class="num">
+                                            12.04.2024
+                                        </p>
+                                        <div class="views">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 6.75C8.40326 6.75 7.83097 6.98705 7.40901 7.40901C6.98705 7.83097 6.75 8.40326 6.75 9C6.75 9.59674 6.98705 10.169 7.40901 10.591C7.83097 11.0129 8.40326 11.25 9 11.25C9.59674 11.25 10.169 11.0129 10.591 10.591C11.0129 10.169 11.25 9.59674 11.25 9C11.25 8.40326 11.0129 7.83097 10.591 7.40901C10.169 6.98705 9.59674 6.75 9 6.75ZM9 12.75C8.00544 12.75 7.05161 12.3549 6.34835 11.6517C5.64509 10.9484 5.25 9.99456 5.25 9C5.25 8.00544 5.64509 7.05161 6.34835 6.34835C7.05161 5.64509 8.00544 5.25 9 5.25C9.99456 5.25 10.9484 5.64509 11.6517 6.34835C12.3549 7.05161 12.75 8.00544 12.75 9C12.75 9.99456 12.3549 10.9484 11.6517 11.6517C10.9484 12.3549 9.99456 12.75 9 12.75ZM9 3.375C5.25 3.375 2.0475 5.7075 0.75 9C2.0475 12.2925 5.25 14.625 9 14.625C12.75 14.625 15.9525 12.2925 17.25 9C15.9525 5.7075 12.75 3.375 9 3.375Z"
+                                                    fill="#2F6B75" />
+                                            </svg>
+
+                                            <p class="num">550</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-navigation slider-navigation_static">
+                        <button class="slider-btn slider-btn_prev">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M13.6464 25.3536C13.4512 25.1583 13.4512 24.8417 13.6464 24.6464L16.8284 21.4645C17.0237 21.2692 17.3403 21.2692 17.5355 21.4645C17.7308 21.6597 17.7308 21.9763 17.5355 22.1716L14.7071 25L17.5355 27.8284C17.7308 28.0237 17.7308 28.3403 17.5355 28.5355C17.3403 28.7308 17.0237 28.7308 16.8284 28.5355L13.6464 25.3536ZM36 25.5H14V24.5H36V25.5Z" fill="#94C6C3"/>
+                                </svg>                                
+                        </button>
+                        <div class="slider-scrollbar"></div>
+                        <button class="slider-btn slider-btn_next">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="24.25" transform="matrix(-1 0 0 1 50 0)" stroke="#94C6C3" stroke-width="1.5"/>
+                                <path d="M36.3536 25.3536C36.5488 25.1583 36.5488 24.8417 36.3536 24.6464L33.1716 21.4645C32.9763 21.2692 32.6597 21.2692 32.4645 21.4645C32.2692 21.6597 32.2692 21.9763 32.4645 22.1716L35.2929 25L32.4645 27.8284C32.2692 28.0237 32.2692 28.3403 32.4645 28.5355C32.6597 28.7308 32.9763 28.7308 33.1716 28.5355L36.3536 25.3536ZM14 25.5H36V24.5H14V25.5Z" fill="#94C6C3"/>
+                                </svg>                                                          
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="geolocation section-offset">
+            <div class="geolocation__container container">
+                <div class="geolocation__wrapper">
+                    <div class="geolocation__info">
+                        <img class="geolocation__info-img" src="assets/img/img-fon.png" alt="">
+                        <h2 class="geolocation__title section-title">Kонтакты</h2>
+                        <div class="geolocation__info-connection">
+                            <div class="geolocation__phone">
+                                <a class="phone_color geolocation__phone-link" href="tel:+79877548405">
+                                    +7 (987) 754-84-05
+                                </a>
+                                <p class="geolocation__phone-descr">Работаем ежедневно, 24/7</p>
+                            </div>
+                            <div class="adres__location">
+                                <p class="adress__gray_descr gray_descr">Адрес:</p>
+                                <p class=" section-descr">
+                                    г. Самара, ул. Ульяновская, 52
+                                </p>
+                            </div>
+                            <div class="email">
+                                <p class="email__gray_descr gray_descr">E-mail:</p>
+                                <a href="malito:info@libermed.ru" class="section-descr">info@libermed.ru</a>
+                            </div>
+                            <button class="geolocation__btn btn popup-btn" data-path="callback">Записаться на
+                                прием</button>
+                        </div>
+                    </div>
+                    <div id="map" class="geolocation__map"></div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer ">
+        <div class="footer__container container">
+            <div class="footer__container-wrapper">
+                <div class="footer__top grid-3-1">
+                    <div class="footer__conection">
+                        <div class="footer_logo">
+                            <a href="#" class="logo_link">
+                                <img class="logo-img" src="assets/img/LiberMED.svg" alt="">
+                            </a>
+                            <p class="footer__logo-descr logo_descr">Наркологический медицинский центр в Самаре</p>
+                        </div>
+                        <div class="footer__phone">
+                            <a class="phone_color footer__phone-link" href="tel:+79877548405">
+                                +7 (987) 754-84-05
+                            </a>
+                            <p class="footer__phone-descr">Работаем ежедневно, 24/7</p>
+                        </div>
+                        <button class="footer__btn btn popup-btn" data-path="callback">Записаться на прием</button>
+                    </div>
+                    <div class="footer__adres adres">
+                        <div class="adres__location">
+                            <p class="adress__gray_descr gray_descr">Адрес:</p>
+                            <button class="popup-btn" data-path="cities">
+                                <p class=" section-descr">
+                                    г. Самара, ул. Ульяновская, 52
+                                </p>
+                            </button>
+                        </div>
+                        <div class="footer__email email">
+                            <p class="email__gray_descr gray_descr">E-mail:</p>
+                            <a href="malito:info@libermed.ru" class="section-descr">info@libermed.ru</a>
+                        </div>
+                    </div>
+                    <div class="footer__payment payment">
+                        <p class="payment__large-descr large-descr">Принимаем к оплате</p>
+                        <div class="payment__card">
+                            <img class="payment__card-img" src="assets/img/section/footer/mir.png" alt="">
+                            <img class="payment__card-img" src="assets/img/section/footer/master.png" alt="">
+                            <img class="payment__card-img" src="assets/img/section/footer/visa.png" alt="">
+                            <img class="payment__card-img" src="assets/img/section/footer/rubl.png" alt="">
+                        </div>
+                        <p class="payment__width-descr width-descr">
+                            Персональные данные на сайте обрабатываются в целях его функционирования, если вы не
+                            согласны, пожалуйста покиньте сайт. В противном случае это будет являться согласием на
+                            обработку персональных данных.
+                        </p>
+                        <a class="detalis-link" href="#">Подробнее</a>
+                    </div>
+                </div>
+                <div class="footer__bootm grid-5-1">
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__info">
+                <p class="footer__width-descr width-descr">Медицинские услуги оказываются «LiberMED», Лицензии
+                    №ЛО41-01167-59/00661602 выдано Министерством здравоохранения Пермского края от 05.07.2023</p>
+                <p class="footer__width-descr-2 width-descr">Справочный наркологический центр – медицинские услуги не
+                    оказываем Все права защищены, 2012-2024</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/build/jquery.min.js"></script>
+    <script src="assets/js/build/lidrekon.js"></script>
+    <div class="cities-popup popup" data-target="cities">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                    Выбор города
+                </p>
+                <div class="popup__search search">
+                    <input type="text" placeholder="Найдите свой город" class="popup__input">
+                    <button class="btn">найти</button>
+                </div>
+
+                <ul class="cities-popup__list">
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="send-popup popup" data-target="send">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <img class="popup__img-fon" src="assets/img/img-fon2.png" alt="">
+                <p class="popup__title">
+                    Задать вопрос
+                </p>
+                <p class="popup__descr page-descr">Заполните форму и мы свяжемся с вами в течении 15&nbspминут</p>
+                <form action="#" class="form__popup" method="post">
+                    <input class="popup__input" type="text" placeholder="Ваше имя">
+                    <input class="popup__input" type="tel" placeholder="+7 (999) 999-99-99">
+                    <textarea name="" class="popup__textarea" placeholder="Ваш вопрос"></textarea>
+                    <button class="btn">Отправить</button>
+                    <p class="popup__gray-descr">
+                        Нажимая кнопку «Оставить заявку», вы соглашаетесь
+                        с политикой конфиденциальности данного сайта</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="review-full-popup popup" data-target="review-full">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="review-full-popup__name review__name"></p>
+                <p class="review-full-popup__text review__text"></p>
+            </div>
+        </div>
+    </div>
+    <div class="search-popup popup" data-target="search">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                    Поиск
+                </p>
+                <div class="popup__search search">
+                    <input type="text" placeholder="Поиск" class="search__input">
+                    <div class="search__btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.5 10.5L13.5 13.5M11.5 6.75C11.5 9.37335 9.37335 11.5 6.75 11.5C4.12665 11.5 2 9.37335 2 6.75C2 4.12665 4.12665 2 6.75 2C9.37335 2 11.5 4.12665 11.5 6.75Z"
+                                stroke="#00253C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="send-popup popup" data-target="add-review">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                    Оставить отзыв
+                </p>
+                <p class="gray_descr">
+                    Ваш адрес e-mail не будет опубликован. Все обязательные поля помечены *
+                </p>
+                <form action="#" class="offers__container-right" method="post">
+                    <textarea name="" id="" class="popup__textarea" placeholder="Ваш отзыв"></textarea>
+                    <div class="popup__wrapper-input">
+                        <input class="popup__input" type="text" placeholder="Ваше имя">
+                        <input class="popup__input" type="mail" placeholder="E-mail *">
+                    </div>
+                    <div class="popup__wrapper-btn">
+                        <button class="offers__container-right__button">Отправить</button>
+                        <label for="">
+                            <input type="text">
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="send-popup popup" data-target="callback">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <img class="popup__img-fon" src="assets/img/img-fon2.png" alt="">
+                <p class="popup__title">
+                    Заказать обратный звонок
+                </p>
+                <p class="popup__descr page-descr">Заполните форму и мы свяжемся с вами в течении 15&nbspминут</p>
+                <form action="#" class="form__popup" method="post">
+                    <input class="popup__input" type="text" placeholder="Ваше имя">
+                    <input class="popup__input" type="tel" placeholder="+7 (999) 999-99-99">
+                    <button class="btn">Отправить</button>
+                    <p class="popup__gray-descr">
+                        Нажимая кнопку «Оставить заявку», вы соглашаетесь
+                        с политикой конфиденциальности данного сайта</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cities-popup popup" data-target="site-search">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                  Поиск
+                </p>
+                <div class="popup__search search">
+                    <input type="text" placeholder="Найдите свой город" class="popup__input">
+                    <button class="btn">найти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

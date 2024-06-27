@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/build/swiper.css">
+    <link rel="stylesheet" href="assets/css/build/fancybox.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/build/swiper.js"></script>
+    <script defer src="assets/js/build/mask.js"></script>
+    <script defer src="assets/js/build/fancybox.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <title>Контакты</title>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            let flagMap = false;
+            document.addEventListener('scroll', function () {
+                const blockMap = document.getElementById('map');
+                const posTop = blockMap.getBoundingClientRect().top;
+
+                if (posTop < window.innerHeight && !flagMap) {
+                    if (!document.querySelector('[src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"]')) {
+                        const script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU';
+                        document.head.appendChild(script);
+                    }
+
+                    ymaps.ready(init);
+
+                    function init() {
+                        const map = document.querySelector('#map');
+
+                        if (map) {
+                            var myMap = new ymaps.Map("map", {
+                                center: [47.228163, 39.714641],
+                                zoom: 14,
+                            });
+
+                            var myPlacemark = new ymaps.Placemark([47.228163, 39.714641], {}, {
+                                iconLayout: 'default#image',
+                                iconImageHref: 'assets/img/icons/map-marker.svg',
+                                iconImageSize: [38, 43],
+                            });
+
+                            myMap.geoObjects.add(myPlacemark);
+                            myMap.behaviors.disable('scrollZoom');
+                        }
+                    }
+
+                    flagMap = true;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top__container container">
+            <div class="top__location">
+                <button class="top__adres popup-btn" data-path="cities">
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.99968 1.3335C5.41967 1.3335 3.33301 3.42016 3.33301 6.00016C3.33301 9.50016 7.99968 14.6668 7.99968 14.6668C7.99968 14.6668 12.6663 9.50016 12.6663 6.00016C12.6663 3.42016 10.5797 1.3335 7.99968 1.3335ZM7.99968 7.66683C7.55765 7.66683 7.13372 7.49124 6.82116 7.17867C6.5086 6.86611 6.33301 6.44219 6.33301 6.00016C6.33301 5.55814 6.5086 5.13421 6.82116 4.82165C7.13372 4.50909 7.55765 4.3335 7.99968 4.3335C8.4417 4.3335 8.86563 4.50909 9.17819 4.82165C9.49075 5.13421 9.66634 5.55814 9.66634 6.00016C9.66634 6.44219 9.49075 6.86611 9.17819 7.17867C8.86563 7.49124 8.4417 7.66683 7.99968 7.66683Z"
+                                fill="#94C6C3" fill-opacity="0.4" />
+                        </svg>
+                    </span>
+                    <p class="top__adres-descr">г. Самара, ул. Ульяновская, 52</p>
+                </button>
+                <form class="form_locations">
+                    <input type="text" placeholder="поиск" class="search__input">
+                    <button type="submit" class="search__btn">
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.2129 8.62223C11.0443 7.55047 11.4361 6.20226 11.3086 4.85187C11.1812 3.50149 10.5441 2.25038 9.52691 1.35307C8.50975 0.455756 7.18896 -0.0203547 5.83323 0.0215974C4.47749 0.0635494 3.18866 0.620413 2.22894 1.5789C1.26837 2.53805 0.709691 3.82738 0.666736 5.18414C0.623781 6.5409 1.09979 7.86299 1.99776 8.88098C2.89572 9.89897 4.14807 10.5363 5.49959 10.663C6.8511 10.7897 8.20008 10.3963 9.2716 9.5629L9.30027 9.5929L12.1283 12.4216C12.1902 12.4835 12.2637 12.5326 12.3447 12.5662C12.4256 12.5997 12.5123 12.6169 12.5999 12.6169C12.6875 12.6169 12.7743 12.5997 12.8552 12.5662C12.9361 12.5326 13.0097 12.4835 13.0716 12.4216C13.1335 12.3596 13.1827 12.2861 13.2162 12.2052C13.2497 12.1242 13.267 12.0375 13.267 11.9499C13.267 11.8623 13.2497 11.7756 13.2162 11.6946C13.1827 11.6137 13.1335 11.5402 13.0716 11.4782L10.2429 8.65023C10.2332 8.64063 10.2232 8.63129 10.2129 8.62223ZM8.82894 2.52223C9.20534 2.89255 9.50469 3.33373 9.70974 3.82032C9.91478 4.30691 10.0215 4.82929 10.0236 5.35731C10.0258 5.88534 9.92334 6.40856 9.72227 6.89681C9.52119 7.38505 9.22544 7.82865 8.85207 8.20203C8.47869 8.5754 8.03509 8.87115 7.54684 9.07223C7.0586 9.2733 6.53537 9.37572 6.00735 9.37357C5.47933 9.37142 4.95695 9.26474 4.47036 9.0597C3.98377 8.85466 3.54259 8.5553 3.17227 8.1789C2.43222 7.42669 2.01937 6.41253 2.02367 5.35731C2.02797 4.3021 2.44906 3.29133 3.19521 2.54517C3.94137 1.79902 4.95214 1.37793 6.00735 1.37363C7.06256 1.36934 8.07673 1.78218 8.82894 2.52223Z"
+                                fill="white" fill-opacity="0.6" />
+                        </svg>
+
+                    </button>
+                </form>
+            </div>
+            <div class="top__visible">
+                <button id="specialButton" class="visible_btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.00033 6C7.46989 6 6.96118 6.21071 6.58611 6.58579C6.21104 6.96086 6.00033 7.46957 6.00033 8C6.00033 8.53043 6.21104 9.03914 6.58611 9.41421C6.96118 9.78929 7.46989 10 8.00033 10C8.53076 10 9.03947 9.78929 9.41454 9.41421C9.78961 9.03914 10.0003 8.53043 10.0003 8C10.0003 7.46957 9.78961 6.96086 9.41454 6.58579C9.03947 6.21071 8.53076 6 8.00033 6ZM8.00033 11.3333C7.11627 11.3333 6.26842 10.9821 5.6433 10.357C5.01818 9.7319 4.66699 8.88406 4.66699 8C4.66699 7.11595 5.01818 6.2681 5.6433 5.64298C6.26842 5.01786 7.11627 4.66667 8.00033 4.66667C8.88438 4.66667 9.73223 5.01786 10.3573 5.64298C10.9825 6.2681 11.3337 7.11595 11.3337 8C11.3337 8.88406 10.9825 9.7319 10.3573 10.357C9.73223 10.9821 8.88438 11.3333 8.00033 11.3333ZM8.00033 3C4.66699 3 1.82033 5.07333 0.666992 8C1.82033 10.9267 4.66699 13 8.00033 13C11.3337 13 14.1803 10.9267 15.3337 8C14.1803 5.07333 11.3337 3 8.00033 3Z"
+                            fill="white" fill-opacity="0.4" />
+                    </svg>
+                </button>
+                <p class="visible-descr">Версия для слабовидящих</p>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="header-top">
+            <div class="header-top__container container">
+                <div class="header__wrapper-head">
+                    <div class="header_logo">
+                        <a href="#" class="logo_link">
+                            <img class="logo-img" src="assets/img/LiberMED.svg" alt="">
+                        </a>
+                        <p class="logo_descr">Наркологический медицинский центр в Самаре</p>
+                    </div>
+                    <div class="header__btn-hiden">
+                        <button class="burger open-menu">
+                            <span class="burger__line"> </span>
+                        </button>
+                        <button class="btn_search popup-btn" data-path="site-search">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" rx="16" fill="#EEF6F9" />
+                                <path
+                                    d="M23.6867 22.563L20.7496 19.6497C21.8897 18.2282 22.4418 16.4239 22.2924 14.6078C22.143 12.7917 21.3035 11.1019 19.9465 9.88578C18.5895 8.66967 16.8181 8.01972 14.9965 8.06956C13.175 8.11941 11.4418 8.86526 10.1533 10.1538C8.86477 11.4423 8.11892 13.1755 8.06907 14.997C8.01923 16.8185 8.66919 18.5899 9.8853 19.947C11.1014 21.304 12.7912 22.1435 14.6073 22.2929C16.4234 22.4423 18.2277 21.8902 19.6492 20.7501L22.5625 23.6634C22.6361 23.7376 22.7237 23.7965 22.8202 23.8367C22.9166 23.8769 23.0201 23.8976 23.1246 23.8976C23.2291 23.8976 23.3326 23.8769 23.4291 23.8367C23.5255 23.7965 23.6131 23.7376 23.6867 23.6634C23.8294 23.5158 23.9092 23.3185 23.9092 23.1132C23.9092 22.9079 23.8294 22.7106 23.6867 22.563ZM15.208 20.7501C14.1119 20.7501 13.0405 20.4251 12.1292 19.8162C11.2178 19.2072 10.5076 18.3418 10.0881 17.3291C9.66868 16.3165 9.55894 15.2023 9.77277 14.1273C9.98659 13.0523 10.5144 12.0649 11.2894 11.2899C12.0644 10.5149 13.0518 9.98708 14.1268 9.77326C15.2018 9.55943 16.3161 9.66917 17.3287 10.0886C18.3413 10.508 19.2068 11.2183 19.8157 12.1297C20.4246 13.041 20.7496 14.1124 20.7496 15.2084C20.7496 16.6782 20.1658 18.0877 19.1265 19.127C18.0872 20.1663 16.6777 20.7501 15.208 20.7501Z"
+                                    fill="#9D9D9D" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="header__btn-grup btn-grup">
+                    <button class="header__btn-gren btn popup-btn" data-path="send">Задать вопрос</button>
+                    <button class="header__btn btn_color popup-btn" data-path="callback">Заказать звонок</button>
+                </div>
+                <div class="phone">
+                    <a class="header__phone-link phone-link" href="tel:+79877548405">
+                        +7 (987) 754-84-05
+                    </a>
+                    <p class="phone__text">Работаем ежедневно, 24/7</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="header_bottom__container container">
+                <nav class="header__nav main-menu">
+                    <ul class="main-menu__list">
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Алкоголизм</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Запой</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Наркомания</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Реабилитация</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">О нас</span>
+                                <svg width="7.000000" height="5.000000" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M1.04 -0.5L5.95 -0.5C6.14 -0.5 6.33 -0.45 6.5 -0.35C6.66 -0.25 6.79 -0.11 6.88 0.06C6.98 0.25 7.01 0.48 6.99 0.7C6.96 0.91 6.87 1.12 6.73 1.29L4.27 4.15C4.17 4.26 4.06 4.35 3.92 4.41C3.79 4.46 3.64 4.5 3.5 4.5C3.35 4.5 3.2 4.46 3.07 4.41C2.93 4.35 2.82 4.26 2.72 4.15L0.26 1.29C0.12 1.12 0.03 0.91 0 0.7C-0.02 0.48 0.01 0.25 0.11 0.06C0.2 -0.11 0.33 -0.25 0.49 -0.35C0.66 -0.45 0.85 -0.5 1.04 -0.5Z"
+                                        fill="#2E2E2E" fill-opacity="1.000000" fill-rule="nonzero" />
+                                </svg>
+                            </a>
+                            <ul class="main-menu__sub-list">
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            О клинике
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Акции
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Блог
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Частые вопросы и ответы
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Фотографии клиники
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Вакансии
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="main-menu__sub-item menu-item">
+                                    <a href="" class="main-menu__sub-link">
+                                        <span class="main-menu__sub-text">
+                                            Контакты
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="dropdown-open">
+                                <svg width="7" height="5" viewBox="0 0 7 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.04465 9.53674e-07L5.95536 9.53674e-07C6.14923 -0.000268936 6.33921 0.0522509 6.50332 0.151481C6.66743 0.250711 6.79896 0.392594 6.88267 0.560708C6.98067 0.760175 7.01842 0.982098 6.99161 1.20119C6.9648 1.42027 6.87451 1.62772 6.73104 1.79987L4.27568 4.65948C4.17933 4.76637 4.06019 4.85209 3.92636 4.91084C3.79253 4.96959 3.64713 5 3.5 5C3.35288 5 3.20747 4.96959 3.07364 4.91084C2.93981 4.85209 2.82068 4.76637 2.72432 4.65948L0.268962 1.79987C0.125486 1.62772 0.0351992 1.42027 0.00838947 1.20119C-0.0184207 0.982098 0.0193267 0.760175 0.117326 0.560708C0.201043 0.392594 0.332568 0.250711 0.496679 0.151481C0.66079 0.0522509 0.850776 -0.000268936 1.04465 9.53674e-07Z"
+                                        fill="#2E2E2E" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Стоимость</span>
+                            </a>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Отзывы</span>
+                            </a>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Блог</span>
+                            </a>
+                        </li>
+                        <li class="main-menu__item menu-item">
+                            <a class="main-menu__link" href="#">
+                                <span class="main-menu__text">Контакты</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li class="">
+                    <a class="breadcrumbs_link" href="#">
+                        <p class="gray_descr">Главная</p>
+                    </a>
+                </li>
+                <p class="gray_descr">/</p>
+                <li class="">
+                    <span class="breadcrumbs_link breadcrumbs_link_active" href="#">
+                        <p class="gray_descr">Контакты</p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <section class="contacts section-offset">
+            <div class="contacts__container container">
+                <h3 class="contacts__title section-title">Контакты</h3>
+                <p class="contacts__descr section-descr">
+                    Наш «Областной реабилитационный центр» работает не только в г. Самара, но и в других городах. Ваши
+                    заявки мы принимаем круглосуточно.
+                </p>
+                <div class="contacts__wrapper">
+                    <button class="contacts__info-block popup-btn" data-path="cities">
+                        <div class="contacts__internal-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8 8C8.79565 8 9.55871 7.68393 10.1213 7.12132C10.6839 6.55871 11 5.79565 11 5C11 4.20435 10.6839 3.44129 10.1213 2.87868C9.55871 2.31607 8.79565 2 8 2C7.20435 2 6.44129 2.31607 5.87868 2.87868C5.31607 3.44129 5 4.20435 5 5C5 5.79565 5.31607 6.55871 5.87868 7.12132C6.44129 7.68393 7.20435 8 8 8ZM8 9C6.93913 9 5.92172 8.57857 5.17157 7.82843C4.42143 7.07828 4 6.06087 4 5C4 3.93913 4.42143 2.92172 5.17157 2.17157C5.92172 1.42143 6.93913 1 8 1C9.06087 1 10.0783 1.42143 10.8284 2.17157C11.5786 2.92172 12 3.93913 12 5C12 6.06087 11.5786 7.07828 10.8284 7.82843C10.0783 8.57857 9.06087 9 8 9Z"
+                                    fill="#9D9D9D" />
+                                <path
+                                    d="M8 8C8.13261 8 8.25979 8.05268 8.35355 8.14645C8.44732 8.24021 8.5 8.36739 8.5 8.5V12.5C8.5 12.6326 8.44732 12.7598 8.35355 12.8536C8.25979 12.9473 8.13261 13 8 13C7.86739 13 7.74021 12.9473 7.64645 12.8536C7.55268 12.7598 7.5 12.6326 7.5 12.5V8.5C7.5 8.36739 7.55268 8.24021 7.64645 8.14645C7.74021 8.05268 7.86739 8 8 8Z"
+                                    fill="#9D9D9D" />
+                                <path
+                                    d="M6 10.1421V11.1571C4.215 11.4431 3 12.0611 3 12.5001C3 13.0891 5.186 14.0001 8 14.0001C10.814 14.0001 13 13.0891 13 12.5001C13 12.0601 11.785 11.4431 10 11.1571V10.1421C12.33 10.4851 14 11.4121 14 12.5001C14 13.8801 11.314 15.0001 8 15.0001C4.686 15.0001 2 13.8801 2 12.5001C2 11.4111 3.67 10.4851 6 10.1421Z"
+                                    fill="#9D9D9D" />
+                            </svg>
+                            <p class="gray_descr">
+                                Адрес:
+                            </p>
+                        </div>
+                        <p class="contacts__info-block_descr">г. Самара, ул. Ульяновская, 52</p>
+                    </button>
+                    <a class="contacts__info-block">
+                        <div class="contacts__internal-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.25 3H2.75C2.05964 3 1.5 3.55964 1.5 4.25V11.75C1.5 12.4404 2.05964 13 2.75 13H13.25C13.9404 13 14.5 12.4404 14.5 11.75V4.25C14.5 3.55964 13.9404 3 13.25 3Z"
+                                    stroke="#9D9D9D" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3.5 5L8 8.5L12.5 5" stroke="#9D9D9D" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <p class="gray_descr">
+                                E-mail:
+                            </p>
+                        </div>
+                        <p class="contacts__info-block_descr">info@libermed.ru</p>
+                    </a>
+                    <div class="contacts__info-block">
+                        <div class="contacts__internal-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8 15C6.61553 15 5.26216 14.5895 4.11101 13.8203C2.95987 13.0511 2.06266 11.9579 1.53285 10.6788C1.00303 9.3997 0.86441 7.99224 1.13451 6.63437C1.4046 5.2765 2.07129 4.02922 3.05026 3.05026C4.02922 2.07129 5.2765 1.4046 6.63437 1.13451C7.99224 0.86441 9.3997 1.00303 10.6788 1.53285C11.9579 2.06266 13.0511 2.95987 13.8203 4.11101C14.5895 5.26216 15 6.61553 15 8C15 9.85652 14.2625 11.637 12.9497 12.9497C11.637 14.2625 9.85652 15 8 15ZM8 2C6.81332 2 5.65328 2.3519 4.66658 3.01119C3.67989 3.67047 2.91085 4.60755 2.45673 5.7039C2.0026 6.80026 1.88378 8.00666 2.11529 9.17054C2.3468 10.3344 2.91825 11.4035 3.75736 12.2426C4.59648 13.0818 5.66558 13.6532 6.82946 13.8847C7.99335 14.1162 9.19975 13.9974 10.2961 13.5433C11.3925 13.0892 12.3295 12.3201 12.9888 11.3334C13.6481 10.3467 14 9.18669 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2Z"
+                                    fill="#9D9D9D" />
+                                <path d="M10.295 11L7.5 8.205V3.5H8.5V7.79L11 10.295L10.295 11Z" fill="#9D9D9D" />
+                            </svg>
+                            <p class="gray_descr">
+                                Режим работы
+                            </p>
+                        </div>
+                        <p class="contacts__info-block_descr">Круглосуточно</p>
+                    </div>
+                    <a class="contacts__info-block">
+                        <div class="contacts__internal-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.0861 9.26059L11.3901 8.95859L10.6841 8.24926L10.3815 8.55126L11.0861 9.26059ZM12.4101 8.83259L13.6835 9.52459L14.1601 8.64592L12.8868 7.95392L12.4101 8.83259ZM13.9281 10.9006L12.9815 11.8426L13.6861 12.5513L14.6328 11.6099L13.9281 10.9006ZM12.4041 12.1453C11.4375 12.2359 8.93746 12.1553 6.22946 9.46326L5.52413 10.1719C8.4788 13.1099 11.2915 13.2539 12.4975 13.1413L12.4041 12.1453ZM6.22946 9.46326C3.6488 6.89659 3.2208 4.73859 3.16746 3.80192L2.1688 3.85859C2.23546 5.03726 2.76546 7.42926 5.52413 10.1719L6.22946 9.46326ZM7.14613 5.34326L7.33746 5.15259L6.63346 4.44392L6.44213 4.63392L7.14613 5.34326ZM7.4888 2.72926L6.64946 1.60659L5.8488 2.20659L6.6888 3.32859L7.4888 2.72926ZM3.82213 1.36192L2.7748 2.40259L3.4808 3.11126L4.5268 2.07126L3.82213 1.36192ZM6.79413 4.98859C6.4408 4.63392 6.4408 4.63392 6.4408 4.63526H6.43947L6.43746 4.63792C6.40599 4.67005 6.37764 4.7051 6.3528 4.74259C6.3168 4.79592 6.27746 4.86592 6.24413 4.95459C6.16295 5.18347 6.14273 5.42953 6.18546 5.66859C6.2748 6.24526 6.67213 7.00726 7.68947 8.01926L8.39413 7.30992C7.44146 6.36326 7.21546 5.78726 7.17346 5.51526C7.15346 5.38592 7.17413 5.32192 7.18013 5.30726C7.18347 5.29792 7.1848 5.29726 7.18013 5.30326C7.17425 5.3125 7.16756 5.3212 7.16013 5.32926L7.15346 5.33592C7.15131 5.338 7.14909 5.34 7.1468 5.34192L6.79413 4.98859ZM7.68947 8.01926C8.70747 9.03126 9.47346 9.42592 10.0508 9.51392C10.3461 9.55926 10.5841 9.52326 10.7648 9.45592C10.8658 9.41853 10.9603 9.36543 11.0448 9.29859C11.0563 9.289 11.0674 9.27899 11.0781 9.26859L11.0828 9.26459L11.0848 9.26259L11.0861 9.26059C11.0861 9.26059 11.0861 9.26059 10.7335 8.90592C10.3801 8.55126 10.3815 8.55126 10.3815 8.55126L10.3835 8.54926L10.3848 8.54792L10.3888 8.54459L10.3955 8.53792C10.4035 8.53073 10.4119 8.52405 10.4208 8.51792C10.4275 8.51326 10.4255 8.51526 10.4161 8.51926C10.3995 8.52526 10.3341 8.54592 10.2028 8.52592C9.9268 8.48326 9.34613 8.25659 8.39413 7.30992L7.68947 8.01926ZM6.64946 1.60659C5.96946 0.699923 4.63346 0.555256 3.82213 1.36192L4.5268 2.07126C4.88146 1.71859 5.5108 1.75526 5.8488 2.20659L6.64946 1.60659ZM3.16746 3.80192C3.15413 3.57126 3.2608 3.32992 3.4808 3.11126L2.7748 2.40259C2.4168 2.75859 2.1348 3.26259 2.1688 3.85859L3.16746 3.80192ZM12.9815 11.8426C12.7988 12.0253 12.6008 12.1273 12.4041 12.1453L12.4975 13.1413C12.9875 13.0953 13.3875 12.8479 13.6861 12.5513L12.9815 11.8426ZM7.33746 5.15259C7.99413 4.49992 8.0428 3.46859 7.49013 2.72992L6.6888 3.32859C6.95746 3.68792 6.9188 4.15926 6.63346 4.44392L7.33746 5.15259ZM13.6835 9.52459C14.2281 9.82059 14.3128 10.5179 13.9281 10.9006L14.6341 11.6099C15.5275 10.7213 15.2515 9.23859 14.1601 8.64592L13.6835 9.52459ZM11.3901 8.95859C11.6461 8.70392 12.0581 8.64192 12.4101 8.83259L12.8868 7.95392C12.1641 7.56059 11.2681 7.66926 10.6841 8.24926L11.3901 8.95859Z"
+                                    fill="#9D9D9D" />
+                            </svg>
+                            <p class="gray_descr">
+                                Телефоны:
+                            </p>
+                        </div>
+                        <p class="contacts__info-block_descr">8 (846) 990-33-73 8 (939) 703-03-73</p>
+                    </a>
+                    <div class="contacts__info-block">
+                        <div class="contacts__internal-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 6.91406V13C13 13.3978 12.842 13.7794 12.5607 14.0607C12.2794 14.342 11.8978 14.5 11.5 14.5H4.5C4.10218 14.5 3.72064 14.342 3.43934 14.0607C3.15804 13.7794 3 13.3978 3 13V3C3 2.60218 3.15804 2.22064 3.43934 1.93934C3.72064 1.65804 4.10218 1.5 4.5 1.5H7.58594C7.85106 1.50004 8.10532 1.60536 8.29281 1.79281L12.7072 6.20719C12.8946 6.39468 13 6.64894 13 6.91406Z"
+                                    stroke="#9D9D9D" stroke-linejoin="round" />
+                                <path
+                                    d="M8 1.75V5.5C8 5.76522 8.10536 6.01957 8.29289 6.20711C8.48043 6.39464 8.73478 6.5 9 6.5H12.75"
+                                    stroke="#9D9D9D" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <p class="gray_descr">
+                                Юридическая информация:
+                            </p>
+                        </div>
+                        <p class="contacts__info-block_descr">ОГРНИП: 316595800122940</p>
+                    </div>
+                    <div class="contacts__info-block">
+                        <div class="contacts__internal-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.5 3H9.5C9.63261 3 9.75979 3.05268 9.85355 3.14645C9.94732 3.24021 10 3.36739 10 3.5V5H6V3.5C6 3.36739 6.05268 3.24021 6.14645 3.14645C6.24021 3.05268 6.36739 3 6.5 3ZM5 3.5V5H4C3.46957 5 2.96086 5.21071 2.58579 5.58579C2.21071 5.96086 2 6.46957 2 7V12C2 12.5304 2.21071 13.0391 2.58579 13.4142C2.96086 13.7893 3.46957 14 4 14H12C12.5304 14 13.0391 13.7893 13.4142 13.4142C13.7893 13.0391 14 12.5304 14 12V7C14 6.46957 13.7893 5.96086 13.4142 5.58579C13.0391 5.21071 12.5304 5 12 5H11V3.5C11 3.10218 10.842 2.72064 10.5607 2.43934C10.2794 2.15804 9.89782 2 9.5 2H6.5C6.10218 2 5.72064 2.15804 5.43934 2.43934C5.15804 2.72064 5 3.10218 5 3.5ZM12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V12C13 12.2652 12.8946 12.5196 12.7071 12.7071C12.5196 12.8946 12.2652 13 12 13H4C3.73478 13 3.48043 12.8946 3.29289 12.7071C3.10536 12.5196 3 12.2652 3 12V7C3 6.73478 3.10536 6.48043 3.29289 6.29289C3.48043 6.10536 3.73478 6 4 6H12ZM8.5 8C8.5 7.86739 8.44732 7.74021 8.35355 7.64645C8.25979 7.55268 8.13261 7.5 8 7.5C7.86739 7.5 7.74021 7.55268 7.64645 7.64645C7.55268 7.74021 7.5 7.86739 7.5 8V9H6.5C6.36739 9 6.24021 9.05268 6.14645 9.14645C6.05268 9.24021 6 9.36739 6 9.5C6 9.63261 6.05268 9.75979 6.14645 9.85355C6.24021 9.94732 6.36739 10 6.5 10H7.5V11C7.5 11.1326 7.55268 11.2598 7.64645 11.3536C7.74021 11.4473 7.86739 11.5 8 11.5C8.13261 11.5 8.25979 11.4473 8.35355 11.3536C8.44732 11.2598 8.5 11.1326 8.5 11V10H9.5C9.63261 10 9.75979 9.94732 9.85355 9.85355C9.94732 9.75979 10 9.63261 10 9.5C10 9.36739 9.94732 9.24021 9.85355 9.14645C9.75979 9.05268 9.63261 9 9.5 9H8.5V8Z"
+                                    fill="#9D9D9D" />
+                            </svg>
+                            <p class="gray_descr">
+                                Медицинские услуги оказывает:
+                            </p>
+                        </div>
+                        <p class="contacts__info-block_descr">
+                            Лицензии № ЛО-66-01-006787 от 19.03.2021 выдано Министерством здравоохранения Самарской
+                        </p>
+                    </div>
+                </div>
+                <picture class="contacts__picture">
+                    <img class="contacts__img" src="assets/img/section/contacts/contacts-img.png" alt="">
+                </picture>
+            </div>
+        </section>
+        <section class="drug-centers section-offset section-offset_padding">
+            <div class="drug-centers__container container">
+                <h3 class="drug-centers__title section-title">Ближайшие отделения «Нарко центр» в регионе</h3>
+            <div class="drug-centers__wrapper grid-4-20">
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+                <div class="drug-centers__block">
+                    <img class="drug-centers__img" src="assets/img/img-fon-3.png" alt="">
+                    <p class="drug-centers__large-descr large-descr">Безенчук</p>
+                    <p class="drug-centers__drug-centers page-descr">Адрес отделения:</p>
+                    <p class="drug-centers__gray_descr gray_descr">
+                        446250, Самарская область, поселок городского типа Безенчук, улица Советская, 49А
+                    </p>
+                    <button class="drug-centers__btn btn_color">На сайт</button>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="consultation section-offset">
+            <div class="consultation__container container">
+                <div class="consultation__wrapper">
+                    <div class="consultation__left-block">
+                        <h3 class="consultation__title section-title">Получите консультацию!
+                            Это бесплатно</h3>
+                            <p class="consultation__descr section-descr">
+                                Позвоните прямо сейчас по номеру, чтобы анонимно получить услуги врачей и психологов наркологической клиники
+                            </p>
+                            <form class="consultation__form" action="#">
+                                <input class="consultation__input" type="name" placeholder="Ваше имя">
+                                <input class="consultation__input" type="tel:79999999999" placeholder="+7 (999) 999-99-99">
+                                <textarea class="consultation__textarea" name="" id="" placeholder="Комментарий"></textarea>
+                                <button class="consultation__btn btn">Оставить заявку</button>
+                                <p class="gray_descr">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
+                            </form>
+                    </div>
+                    <div id="map" class="geolocation__map"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer ">
+        <div class="footer__container container">
+            <div class="footer__container-wrapper">
+                <div class="footer__top grid-3-1">
+                    <div class="footer__conection">
+                        <div class="footer_logo">
+                            <a href="#" class="logo_link">
+                                <img class="logo-img" src="assets/img/LiberMED.svg" alt="">
+                            </a>
+                            <p class="footer__logo-descr logo_descr">Наркологический медицинский центр в Самаре</p>
+                        </div>
+                        <div class="footer__phone">
+                            <a class="phone_color footer__phone-link" href="tel:+79877548405">
+                                +7 (987) 754-84-05
+                            </a>
+                            <p class="footer__phone-descr">Работаем ежедневно, 24/7</p>
+                        </div>
+                        <button class="footer__btn btn popup-btn" data-path="callback">Записаться на прием</button>
+                    </div>
+                    <div class="footer__adres adres">
+                        <div class="adres__location">
+                            <p class="adress__gray_descr gray_descr">Адрес:</p>
+                            <button class="popup-btn" data-path="cities">
+                                <p class=" section-descr">
+                                    г. Самара, ул. Ульяновская, 52
+                                </p>
+                            </button>
+                        </div>
+                        <div class="footer__email email">
+                            <p class="email__gray_descr gray_descr">E-mail:</p>
+                            <p class="section-descr">info@libermed.ru</p>
+                        </div>
+                    </div>
+                    <div class="footer__payment payment">
+                        <p class="payment__large-descr large-descr">Принимаем к оплате</p>
+                        <div class="payment__card">
+                            <img class="payment__card-img" src="assets/img/section/footer/mir.png" alt="">
+                            <img class="payment__card-img" src="assets/img/section/footer/master.png" alt="">
+                            <img class="payment__card-img" src="assets/img/section/footer/visa.png" alt="">
+                            <img class="payment__card-img" src="assets/img/section/footer/rubl.png" alt="">
+                        </div>
+                        <p class="payment__width-descr width-descr">
+                            Персональные данные на сайте обрабатываются в целях его функционирования, если вы не
+                            согласны, пожалуйста покиньте сайт. В противном случае это будет являться согласием на
+                            обработку персональных данных.
+                        </p>
+                        <a class="detalis-link" href="#">Подробнее</a>
+                    </div>
+                </div>
+                <div class="footer__bootm grid-5-1">
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__menu">
+                        <p class="footer__menu-descr section-descr">О нас</p>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__link gray_descr" href="#">пункт меню</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__info">
+                <p class="footer__width-descr width-descr">Медицинские услуги оказываются «LiberMED», Лицензии
+                    №ЛО41-01167-59/00661602 выдано Министерством здравоохранения Пермского края от 05.07.2023</p>
+                <p class="footer__width-descr-2 width-descr">Справочный наркологический центр – медицинские услуги не
+                    оказываем Все права защищены, 2012-2024</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/build/jquery.min.js"></script>
+    <script src="assets/js/build/lidrekon.js"></script>
+    <div class="cities-popup popup" data-target="cities">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                    Выбор города
+                </p>
+                <div class="popup__search search">
+                    <input type="text" placeholder="Найдите свой город" class="popup__input">
+                    <button class="btn">найти</button>
+                </div>
+
+                <ul class="cities-popup__list">
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                    <li class="cities-popup__item"><a href="" class="cities-popup__link">Абаза</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="send-popup popup" data-target="send">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <img class="popup__img-fon" src="assets/img/img-fon2.png" alt="">
+                <p class="popup__title">
+                    Задать вопрос
+                </p>
+                <p class="popup__descr page-descr">Заполните форму и мы свяжемся с вами в течении 15&nbspминут</p>
+                <form action="#" class="form__popup" method="post">
+                    <input class="popup__input" type="text" placeholder="Ваше имя">
+                    <input class="popup__input" type="tel" placeholder="+7 (999) 999-99-99">
+                    <textarea name="" class="popup__textarea" placeholder="Ваш вопрос"></textarea>
+                    <button class="btn">Отправить</button>
+                    <p class="popup__gray-descr">
+                        Нажимая кнопку «Оставить заявку», вы соглашаетесь
+                        с политикой конфиденциальности данного сайта</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="review-full-popup popup" data-target="review-full">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="review-full-popup__name review__name"></p>
+                <p class="review-full-popup__text review__text"></p>
+            </div>
+        </div>
+    </div>
+    <div class="search-popup popup" data-target="search">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                    Поиск
+                </p>
+                <div class="popup__search search">
+                    <input type="text" placeholder="Поиск" class="search__input">
+                    <div class="search__btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.5 10.5L13.5 13.5M11.5 6.75C11.5 9.37335 9.37335 11.5 6.75 11.5C4.12665 11.5 2 9.37335 2 6.75C2 4.12665 4.12665 2 6.75 2C9.37335 2 11.5 4.12665 11.5 6.75Z"
+                                stroke="#00253C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="send-popup popup" data-target="add-review">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                    Оставить отзыв
+                </p>
+                <p class="gray_descr">
+                    Ваш адрес e-mail не будет опубликован. Все обязательные поля помечены *
+                </p>
+                <form action="#" class="offers__container-right" method="post">
+                    <textarea name="" id="" class="popup__textarea" placeholder="Ваш отзыв"></textarea>
+                    <div class="popup__wrapper-input">
+                        <input class="popup__input" type="text" placeholder="Ваше имя">
+                        <input class="popup__input" type="mail" placeholder="E-mail *">
+                    </div>
+                    <div class="popup__wrapper-btn">
+                        <button class="offers__container-right__button">Отправить</button>
+                        <label for="">
+                            <input type="text">
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="send-popup popup" data-target="callback">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <img class="popup__img-fon" src="assets/img/img-fon2.png" alt="">
+                <p class="popup__title">
+                    Заказать обратный звонок
+                </p>
+                <p class="popup__descr page-descr">Заполните форму и мы свяжемся с вами в течении 15&nbspминут</p>
+                <form action="#" class="form__popup" method="post">
+                    <input class="popup__input" type="text" placeholder="Ваше имя">
+                    <input class="popup__input" type="tel" placeholder="+7 (999) 999-99-99">
+                    <button class="btn">Отправить</button>
+                    <p class="popup__gray-descr">
+                        Нажимая кнопку «Оставить заявку», вы соглашаетесь
+                        с политикой конфиденциальности данного сайта</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cities-popup popup" data-target="site-search">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close close-popup">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
+                    </svg>
+                </button>
+                <p class="popup__title">
+                  Поиск
+                </p>
+                <div class="popup__search search">
+                    <input type="text" placeholder="Найдите свой город" class="popup__input">
+                    <button class="btn">найти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
