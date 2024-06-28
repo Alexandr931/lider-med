@@ -165,7 +165,7 @@ body {
 }
 
 .visible-descr {
-    color: #fff;
+    color: #AEAEAE;
 }
 
 .section-offset {
@@ -514,6 +514,10 @@ body {
     font-weight: 500;
 }
 
+.logo_link{
+    height: 46px;
+    width: 167px;
+}
 .num {
     font-family: "InterTight";
     font-weight: 500;
@@ -1020,7 +1024,7 @@ a:visited {
 /* banner */
 .banner {
     background: linear-gradient(180.00deg, rgb(255, 255, 255), rgb(238, 246, 249) 100%);
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
 }
 
 .banner__offset_padding {
@@ -1057,6 +1061,9 @@ a:visited {
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
+    text-align: center;
+}
+.banner__internal-block-item{
     text-align: center;
 }
 
@@ -1257,7 +1264,7 @@ a:visited {
 }
 
 .about-us__block {
-    padding: 0 40px;
+    padding-right: 40px;
     border-right: 1px solid #D5EAF2;
 }
 
@@ -1265,13 +1272,10 @@ a:visited {
     border-right: initial;
 }
 
-.about-us__container-wrapper {
-    border-bottom: 1px solid #D5EAF2;
-    gap: 60px 0;
-}
 
 .about-us__container-wrapper {
     border-top: 1px solid #D5EAF2;
+    border-bottom: 1px solid #D5EAF2;
     padding: 40px 0;
 }
 
@@ -1313,7 +1317,6 @@ a:visited {
 
 /* specialists */
 .specialists__slide-img {
-    height: 330px;
     border-radius: 20px;
     width: 100%;
     background-size: cover;
@@ -1624,12 +1627,89 @@ a:visited {
 }
 
 /* calculator */
-.calculator__form {
+.calculator__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 70px;
+    background-color: #EEF6F9;
+    border-radius: 20px;
+}
+.calculator__form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.calculator__info-input {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 80px;
 }
-
+.castom-checbox{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    background: #D4E8EF;
+    vertical-align: sub;
+    position: relative;
+    top: -2px;
+    margin-right: 8px;
+}
+.calculator__label{
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 400;
+}
+.castom-checbox::before {
+    display: inline-block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #2F6B75;
+    position: absolute;
+    transform: scale(0);
+    border-radius: 2px;
+}
+.castom-checbox_item{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    background: #D4E8EF;
+    vertical-align: sub;
+    position: relative;
+    top: -2px;
+    margin-right: 8px;
+}
+.castom-checbox_item::before {
+    display: inline-block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #2F6B75;
+    position: absolute;
+    transform: scale(0);
+    border-radius: 2px;
+    /* background-image: url("../img/vector.svg"); */
+    background-repeat: no-repeat;
+    background-size: color;
+}
+.calculator__input-checbox:checked + .castom-checbox_item::before {
+    transform: scale(1);
+}
+.calculator__input-checbox{
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+}
+.calculator__input-checbox:checked + .castom-checbox::before {
+    transform: scale(1);
+}
+.calculator__btn{
+    width: fit-content;
+}
 .calculator__form-inem {
     display: flex;
     flex-direction: column;
@@ -1663,6 +1743,25 @@ a:visited {
     position: absolute;
     right: 20px;
     bottom: 20px;
+}
+.calculator__checbox-wrapper{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 12px;
+}
+.calculator__checbox{
+    display: flex;
+    gap: 8px;
+}
+.calculator__picture{
+    height: 320px;
+}
+.calculator__img {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+
 }
 
 /* application */
@@ -1724,6 +1823,8 @@ a:visited {
 .application__img {
     height: 100%;
     border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
 }
 
 
@@ -2614,7 +2715,7 @@ a:visited {
 
     .btn:hover {
         background-color: #07414B;
-        transition: border-color .2s ease;
+        transition:  background-color .2s ease;
     }
 
     .btn_color:hover {
@@ -2632,6 +2733,9 @@ a:visited {
 
     .content-body a:hover {
         color: #2F6B75;
+        font-weight: 600px;
+        font-size: 16px;
+        transition: .2s ease;
     }
 
     .main-menu__item:hover>.main-menu__sub-list {
@@ -2656,6 +2760,33 @@ a:visited {
     /* .main-menu__sub-item:hover>.main-menu__sub-link {
         background-color: #2F6B75;
     } */
+    .visible-descr:hover{
+        color: #FFFFFF;
+        transition: .2s ease;
+    }
+    .question__title-decor svg:focus {
+        fill: #2F6B75;
+        stroke: #FFFFFF;
+        transform: rotate(140deg);
+        transition: 2s ease;
+    }
+    .question__title-decor svg:hover {
+        fill: #2F6B75;
+        stroke: #FFFFFF;
+        transform: rotate(40deg);
+        transition: .3s ease;
+    }
+    .question__title-decor svg:active {
+        fill: #2F6B75;
+        stroke: #FFFFFF;
+        transform: rotate(140deg);
+        transition: 2s ease;
+    }
+    .tabs__item:hover{
+        background-color: #EEF6F9;
+        color: #2E6E74;
+        transition: background-color .2 ease;
+    }
 }
 
 @media(max-width:1024px) {
@@ -2871,6 +3002,7 @@ a:visited {
     }
 
     .phone__text {
+        font-style: italic;
         font-size: 10px;
         line-height: 10px;
         font-weight: 400;
@@ -2913,6 +3045,7 @@ a:visited {
     .header__btn-hiden {
         display: flex;
         gap: 10px;
+        align-items: start;
     }
 
     .header__connection {
@@ -3020,6 +3153,9 @@ a:visited {
     .banner-title {
         font-size: 32px;
         line-height: 32.5px;
+    }
+    .header__gray_descr{
+        text-align: center;
     }
 
     .banner__block-img {
@@ -3439,6 +3575,9 @@ a:visited {
     .video{
         float: none;
     }
+    .calculator__picture {
+        height: 230px;
+    }
 }
 
 @media(max-width:576px) {
@@ -3483,7 +3622,13 @@ a:visited {
         float: none;
         margin-bottom: 40px;
     }
-
+    .about-us__container-wrapper{
+        border-bottom: none;
+        border-top: none;
+    }
+    .about-us__block{
+        border-right: none;
+    }
     /* footer */
     .footer__menu {
         padding: 13px 20px;
