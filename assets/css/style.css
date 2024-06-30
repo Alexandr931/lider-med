@@ -803,10 +803,6 @@ body {
     border-radius: 10px;
 }
 
-.chek-artivle__img {
-    border-radius: 10px;
-}
-
 .chek-artivle__date {
     display: flex;
     gap: 6px;
@@ -823,7 +819,13 @@ body {
 .chek-artivle__doctor {
     margin-bottom: 37px;
 }
-
+.chek-artivle__img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    object-position: center;
+}
 .content {
     margin-bottom: 30px;
 }
@@ -841,6 +843,17 @@ body {
 .title-wrapper__logo {
     height: 51px;
     width: 160px;
+}
+.logo-img{
+    height: 100%;
+    width: 100%;
+}
+.logo-img{
+    height: 46px;
+    width: 167px;
+}
+.text-width{
+    font-weight: 600;
 }
 
 /* header */
@@ -1039,7 +1052,9 @@ a:visited {
 /* banner */
 .banner {
     background: linear-gradient(180.00deg, rgb(255, 255, 255), rgb(238, 246, 249) 100%);
-    /* margin-bottom: 200px; */
+}
+.banner-offset{
+    margin-bottom: 200px;
 }
 
 .banner__offset_padding {
@@ -1220,6 +1235,9 @@ a:visited {
     display: flex;
     gap: 10px;
 }
+.banner__block-right{
+    padding-top: 30px;
+}
 
 /* services */
 .services-descr {
@@ -1296,6 +1314,12 @@ a:visited {
 }
 
 /* paid-services */
+.paid-services__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
 .paid-services__block {
     padding: 30px;
     display: flex;
@@ -1308,6 +1332,9 @@ a:visited {
 .paid-services__large-descr {
     color: #1E1E1E;
     font-weight: 500;
+}
+.paid-services__btn{
+
 }
 
 /* our-center */
@@ -1629,13 +1656,18 @@ a:visited {
 .review.swiper-slide-active .reviews__block-fon {
     background-color: #2E6E74;
 }
-
+.review.swiper-slide-active .reviews__block-fon::after {
+    background-image: url("../img/triangle-hov.svg");
+}
 .review.swiper-slide-active .reviews__name-services {
     color: #FFFFFC;
 }
 
 .review.swiper-slide-active .reviews__descr {
     color: #FFFFFF;
+}
+.swiper-slide-active .reviews__img svg {
+    fill: #2F6B75;
 }
 
 .reviews-color {
@@ -1942,9 +1974,6 @@ a:visited {
     color: #1E1E1E;
 }
 
-.geolocation__info-img {
-    z-index: 0;
-}
 
 /* .geolocation__title {
     margin-bottom: 0;
@@ -1961,6 +1990,7 @@ a:visited {
     position: absolute;
     bottom: 0;
     right: 0;
+    z-index: 0;
 }
 
 .geolocation__info-connection {
@@ -2226,12 +2256,13 @@ a:visited {
     border-radius: 20px;
 }
 
-.spice__info-block {
-    padding: 30px 0;
-}
+
 
 .spice__form-block_descr {
     margin-bottom: 12px;
+}
+.page-descr{
+    margin-bottom: 30px;
 }
 
 .spice__form {
@@ -2241,19 +2272,22 @@ a:visited {
 }
 
 .spice__container-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
 .spice__picture {
-    max-height: 400px;
-    width: 100%;
+    height: 400px;
 }
 
 .spice__img {
     height: 100%;
     border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
 }
+
 
 /* sorbents */
 .sorbents__picture {
@@ -2783,7 +2817,7 @@ a:visited {
     .content-body a:hover {
         color: #2F6B75;
         font-weight: 600px;
-        font-size: 16px;
+        font-size: 15px;
         transition: .2s ease;
     }
 
@@ -2854,7 +2888,7 @@ a:visited {
 
     /* glob */
     .logo-img {
-        height: 30px;
+       height: 100%;
     }
 
     .popup__search {
@@ -3064,10 +3098,16 @@ a:visited {
     .logo_descr {
         font-size: 8px;
         line-height: 8.2px;
+        max-width: 109px;
+    }
+    .header_logo{
+        align-items: center;
+    }
+    .logo_link{
+        height: 100%;
     }
 
     .phone__text {
-        font-style: italic;
         font-size: 10px;
         line-height: 10px;
         font-weight: 400;
@@ -3223,7 +3263,7 @@ a:visited {
     .header__wrapper-head {
         display: flex;
         justify-content: space-between;
-        gap: 5px;
+        gap: 16px;
         width: 100%;
     }
 
@@ -3241,12 +3281,7 @@ a:visited {
         text-align: center;
     }
 
-    .banner__block-img {
-        /* display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 10px; */
-        flex-wrap: wrap;
-    }
+    
 
     .banner__container-wrapper {
         flex-direction: column;
@@ -3270,7 +3305,7 @@ a:visited {
 
     .banner__block-img {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
 
@@ -3359,7 +3394,9 @@ a:visited {
     }
 
     .geolocation__info-img {
-        display: none;
+       width: 50%;
+       opacity: 50%;
+       display: none;
     }
 
     .geolocation__wrapper {
@@ -3415,10 +3452,16 @@ a:visited {
 
     /* spice */
     .spice__container-wrapper {
-        flex-direction: column;
-        gap: 5px;
+       grid-template-columns: repeat(1, 1fr);
+       gap: 10px;
     }
-
+    .spice__form-block{
+        padding: 60px 0;
+        background-color: initial;
+    }
+    .spice__picture{
+        height: 181px;
+    }
     .mistake {
         padding: 40px 0 60px;
     }
@@ -3640,6 +3683,13 @@ a:visited {
         background-color: initial;
         padding: 0;
     }
+    .sorbents__internal-block{
+        float: none;
+        margin-right: 0;
+        padding: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;    
+    }
 }
 
 @media(max-width:765px) {
@@ -3662,6 +3712,11 @@ a:visited {
 
     .block-bottom__form {
         flex-direction: column;
+        gap: 10px;
+    }
+    .banner__block-img {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
@@ -3688,10 +3743,19 @@ a:visited {
 
     .video {
         float: none;
+        height: 300px;
+        margin-right: 0;
     }
 
     .calculator__picture {
         height: 230px;
+    }
+    .text-block__picture{
+        min-width: initial;
+        height: 180px;
+    }
+    .text-block__picture-2{
+        height: 180px;
     }
 }
 
@@ -3732,11 +3796,25 @@ a:visited {
         grid-template-columns: repeat(1, 1fr);
         gap: 25px;
     }
+    .chek-artivle{
+        padding: 15px;
+    }
 
-    .chek-artivle {
-        flex-direction: column;
-        float: none;
-        margin-bottom: 40px;
+    .chek-artivle__picture{
+        height: 136px;
+        width: 120px;
+    }
+    .chek-artivle__doctor-descr{
+        margin-bottom: 10px;
+    }
+    .chek-artivle__doctor{
+        margin-bottom: 12px;
+    }
+    .chek-artivle__date{
+        flex-wrap: wrap;
+    }
+    .content-descr{
+        font-size: 12px;
     }
 
     .about-us__container-wrapper {
