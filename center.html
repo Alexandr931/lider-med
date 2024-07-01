@@ -12,7 +12,7 @@
     <script defer src="assets/js/build/mask.js"></script>
     <script defer src="assets/js/build/fancybox.js"></script>
     <script defer src="assets/js/main.js"></script>
-    <title>Вопросы и ответы</title>
+    <title>Наш центр</title>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             let flagMap = false;
@@ -611,12 +611,13 @@
             <div class="our-center__container container">
                 <h2 class="our-center__title section-title">Наш центр</h2>
                 <p class="our-center__descr section-descr">
-                    Добро пожаловать в фотогалерею наркологической клиники LiberMED в Самаре. Здесь вы можете увидеть, в
+                    Добро пожаловать в фотогалерею наркологической клиники<a class="section-logo_link" href="#"> <img class="section-log_img" src="assets/img/LiberMED.svg" alt=""></a> в Самаре. Здесь вы можете увидеть, в
                     какой обстановке наши пациенты борются с зависимостью. Мы предоставляем фотографии, сделанные внутри
                     нашей наркологической клиники, чтобы вы могли близко и лично заглянуть в мир лечения и реабилитации
                     алко- и наркозависимых
                 </p>
-                <section class="our-center__wrapper grid-2-20-20">
+                <div class="our-center__wrapper">
+                <div class=" grid-2-20-20">
                     <picture class="our-center__slide swiper-slide">
                         <img class="our-center__slide-img" src="assets/img/section/our-center/our-center.png"
                             alt="">
@@ -642,7 +643,9 @@
                         <img class="our-center__slide-img" src="assets/img/section/our-center/our-center.png"
                             alt="">
                     </picture>
-                </section>
+                </div>
+                <button class="btn_color btn">показать еще</button>
+            </div>
             </div>
         </section>
         <section class="application section-offset">
@@ -670,7 +673,11 @@
                 <div class="geolocation__wrapper">
                     <div class="geolocation__info">
                         <img class="geolocation__info-img" src="assets/img/img-fon.png" alt="">
-                        <h2 class="geolocation__title section-title">Kонтакты</h2>
+                        <h2 class="geolocation__title section-title">Kонтакты
+                            <a href="#" class="title-wrapper__link">
+                                <img class="title-wrapper__logo" src="assets/img/LiberMED.svg" alt="">
+                            </a>
+                        </h2>
                         <div class="geolocation__info-connection">
                             <div class="geolocation__phone">
                                 <a class="phone_color geolocation__phone-link" href="tel:+79877548405">
@@ -686,7 +693,7 @@
                             </div>
                             <div class="email">
                                 <p class="email__gray_descr gray_descr">E-mail:</p>
-                                <p class="section-descr">info@libermed.ru</p>
+                                <a href="malito:info@libermed.ru" class="section-descr">info@libermed.ru</a>
                             </div>
                             <button class="geolocation__btn btn popup-btn" data-path="callback">Записаться на
                                 прием</button>

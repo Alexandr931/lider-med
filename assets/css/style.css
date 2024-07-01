@@ -1357,6 +1357,15 @@ a:visited {
 .our-center__slider {
     margin-bottom: 40px;
 }
+.our-center__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.our-center__btn{
+    width: fit-content;
+}
 
 /* specialists */
 .specialists__slide-img {
@@ -1448,6 +1457,15 @@ a:visited {
 
 .documents__slider {
     margin-bottom: 40px;
+}
+.license__container-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.license__btn{
+    width: fit-content;
 }
 
 /* stocks */
@@ -1587,7 +1605,9 @@ a:visited {
 .reviews__client-name {
     padding-left: 44px;
 }
-
+.reviews_padding{
+    padding-bottom: 100px;
+}
 .rating__stars {
     display: flex;
     gap: 5px;
@@ -1643,6 +1663,12 @@ a:visited {
 .reviews__descr {
     max-width: 370px;
 }
+.reviews__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
 
 .reviews__name-services {
     margin-bottom: 10px;
@@ -1652,9 +1678,12 @@ a:visited {
 .reviews__slider {
     margin-bottom: 40px;
 }
+.reviews__btn{
+    width: fit-content;
+}
 
 .review.swiper-slide-active .reviews__block-fon {
-    background-color: #2E6E74;
+    background: linear-gradient(138.65deg, rgba(46, 110, 116, 0.2) 51.034%,rgba(255, 255, 255, 0.12) 95.365%),rgb(47, 107, 117);
 }
 .review.swiper-slide-active .reviews__block-fon::after {
     background-image: url("../img/triangle-hov.svg");
@@ -1666,7 +1695,7 @@ a:visited {
 .review.swiper-slide-active .reviews__descr {
     color: #FFFFFF;
 }
-.swiper-slide-active .reviews__img svg {
+.swiper-slide-active .reviews__img svg path {
     fill: #2F6B75;
 }
 
@@ -1767,6 +1796,7 @@ a:visited {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 .calculator__select {
@@ -2234,7 +2264,6 @@ a:visited {
 }
 
 .spice__descr {
-    max-width: 640px;
     margin-bottom: 15px;
 }
 
@@ -2261,9 +2290,7 @@ a:visited {
 .spice__form-block_descr {
     margin-bottom: 12px;
 }
-.page-descr{
-    margin-bottom: 30px;
-}
+
 
 .spice__form {
     display: flex;
@@ -2471,6 +2498,10 @@ a:visited {
 .drug-centers {
     background-color: #EEF6F9;
 }
+.drug-centers_color{
+    background: linear-gradient(180.00deg, rgb(255, 255, 255), rgb(238, 246, 249) 100%);
+    padding-bottom: 90px;
+}
 
 .drug-centers__block {
     padding: 30px;
@@ -2509,6 +2540,22 @@ a:visited {
 .drug-centers__gray_descr {
     margin-bottom: 30px;
 }
+.drug-centers__search{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.drug-centers__input{
+    padding: 20px 25px;
+    border: 1px solid #EAEAEA;
+    color: #9D9D9D;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    height: 55px;
+    border-radius: 60px;
+    width: 420px;
+}
 
 .faq__descr {
     max-width: 649px;
@@ -2516,7 +2563,8 @@ a:visited {
 
 /* consultation */
 .consultation__wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -2540,10 +2588,26 @@ a:visited {
     border: 1px solid #EAEAEA;
     height: 130px;
 }
+.consultation__btn-file{
+    display: flex;
+    gap: 4px;
+}
+.consultation__btn-file_descr{
+    color: #2F6B75;
+}
 
 /* our-specialists */
 .our-specialists__descr {
     margin-bottom: 30px;
+}
+.our-specialists__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.our-specialists__btn{
+    width: fit-content;
 }
 
 /* schedule */
@@ -2618,7 +2682,15 @@ a:visited {
 .reviews-doctor {
     background-color: #EEF6F9;
 }
-
+.reviews-doctor__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.reviews-doctor__btn{
+    background-color: #EEF6F9;
+}
 
 /* 404 */
 .mistake {
@@ -2800,6 +2872,11 @@ a:visited {
         background-color: #07414B;
         transition: background-color .2s ease;
     }
+    .visible_btn svg path:hover {
+        fill: #FFFFFF;
+        fill-opacity: initial;
+        transition: .2s ease;
+    }
 
     .btn_color:hover {
         background-color: #94C6C3;
@@ -2881,6 +2958,10 @@ a:visited {
         transform: rotate(180deg);
         transition: .2 ease;
         top: 40%;
+    }
+    .city__link:hover {
+        color: #2F6B75;
+        transition: .2s ease;
     }
 }
 
@@ -3166,7 +3247,7 @@ a:visited {
     /* header */
     .header__btn-hiden {
         display: flex;
-        gap: 10px;
+        gap: 5px;
         align-items: start;
     }
 
@@ -3690,6 +3771,13 @@ a:visited {
         margin-top: 30px;
         margin-bottom: 30px;    
     }
+    /* consultation__wrapper */
+    .consultation__wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+   
 }
 
 @media(max-width:765px) {
@@ -3699,6 +3787,14 @@ a:visited {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
+    }
+    .btn_color{
+        font-size: 12px;
+        padding: 15px 25px;
+    }
+    .btn{
+        font-size: 12px;
+        padding: 15px 25px;
     }
 
     /* banner */
@@ -3718,6 +3814,10 @@ a:visited {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+    }
+    .logo_link{
+        height: 46px;
+        width: 167px;
     }
 
     /* about-center__block */
@@ -3749,6 +3849,9 @@ a:visited {
 
     .calculator__picture {
         height: 230px;
+    }
+    .calculator__checbox-wrapper{
+        flex-direction: column;
     }
     .text-block__picture{
         min-width: initial;
@@ -3796,6 +3899,12 @@ a:visited {
         grid-template-columns: repeat(1, 1fr);
         gap: 25px;
     }
+    .header__wrapper-head{
+        gap: 8px;
+    }
+    .header_logo{
+        gap: 2px;
+    }
     .chek-artivle{
         padding: 15px;
     }
@@ -3825,7 +3934,15 @@ a:visited {
     .about-us__block {
         border-right: none;
     }
-
+    /* drug-centers */
+    .drug-centers__input{
+        width: 100%;
+    }
+    .drug-centers__search{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
     /* footer */
     .footer__menu {
         padding: 13px 20px;

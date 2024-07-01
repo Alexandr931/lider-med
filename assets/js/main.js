@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     nextEl: elem.closest('.slider-container').querySelector('.slider-btn_next'),
                 },
                 centeredSlides: true,
+                initialSlide: 2,
                 slidesPerView: 3,
                 spaceBetween: 20,
                 breakpoints: {

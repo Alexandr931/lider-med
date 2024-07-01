@@ -607,10 +607,11 @@
                 </li>
                 </ul>
             </div>
-             <section class="reviews reviews-color section-offset section-offset_padding">
+             <section class="reviews reviews_padding reviews-color section-offset">
             <div class="reviews__container container">
-                <h3 class="reviews__title section-title">Отзывы клиентов</h3>
-                <div class="reviews__wrapper grid-3-20">
+                <h3 class="reviews__title section-title">Отзывы</h3>
+                <div class="reviews__wrapper">
+                <div class="grid-3-20">
                     <div class="reviews__block review swiper-slide">
                         <div class="reviews__block-fon">
                             <img class="reviews__img" src="assets/img/section/rivers/decor-img.png" alt="">
@@ -949,6 +950,8 @@
                         </div>
                     </div>
                 </div>
+                <button class="reviews__btn btn">Оставить отзыв</button>
+            </div>
             </div>
         </section>
         <section class="application section-offset">
@@ -976,7 +979,11 @@
                 <div class="geolocation__wrapper">
                     <div class="geolocation__info">
                         <img class="geolocation__info-img" src="assets/img/img-fon.png" alt="">
-                            <h2 class="geolocation__title section-title">Kонтакты</h2>
+                        <h2 class="geolocation__title section-title">Kонтакты
+                            <a href="#" class="title-wrapper__link">
+                                <img class="title-wrapper__logo" src="assets/img/LiberMED.svg" alt="">
+                            </a>
+                        </h2>
                         <div class="geolocation__info-connection">
                             <div class="geolocation__phone">
                                 <a class="phone_color geolocation__phone-link" href="tel:+79877548405">
@@ -992,7 +999,7 @@
                             </div>
                             <div class="email">
                                 <p class="email__gray_descr gray_descr">E-mail:</p>
-                                <p class="section-descr">info@libermed.ru</p>
+                                <a href="malito:info@libermed.ru" class="section-descr">info@libermed.ru</a>
                             </div>
                             <button class="geolocation__btn btn popup-btn" data-path="callback">Записаться на
                                 прием</button>
@@ -1002,7 +1009,7 @@
                 </div>
             </div>
             </div>
-        </section>   
+        </section>
     </main>
     <footer class="footer ">
         <div class="footer__container container">
