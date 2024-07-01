@@ -15,8 +15,8 @@ function setWidthScrollBar() {
 }
 
 function menuOpen(menuSelector) {
-    menuSelector.classList.toggle('active');
-    document.querySelector('html').classList.toggle('lock');
+    menuSelector.classList.add('active');
+    document.querySelector('html').classList.add('lock');
 }
 
 function menuClose(menuSelector) {
@@ -701,6 +701,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 list_buttons[index].classList.add('active');
             }
         }
+    }
+
+    const btnSearchOpenList = document.querySelectorAll('.search-open');
+    const btnSearchToggleList = document.querySelectorAll('.search-toggle');
+    const searchJs = document.querySelector('.search-js');
+
+    if (btnSearchOpenList.length > 0) {
+        btnSearchOpenList.forEach(btn => {
+            btn.addEventListener("click", () => {
+                searchJs.classList.add('active');
+            });
+        })
+    }
+
+    if (btnSearchToggleList.length > 0) {
+        btnSearchToggleList.forEach(btn => {
+            btn.addEventListener("click", () => {
+                searchJs.classList.toggle('active');
+            });
+        })
     }
 
     new Tabs().initTabs();

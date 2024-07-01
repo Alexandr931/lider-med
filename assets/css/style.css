@@ -1,7 +1,7 @@
 /* fonts */
 @font-face {
     font-family: 'InterTight';
-    src: local('InterTight Regular'), local('InterTight'),
+    src: local('InterTight Regular'), local('InterTight-Regular'),
         url('../fonts/InterTight/InterTight-Regular.woff') format('woff'),
         url('../fonts/InterTight/InterTight-Regular.woff2') format('woff2');
     font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'InterTight';
-    src: local('InterTight Medium'), local(''),
+    src: local('InterTight Medium'), local('InterTight-Medium'),
         url('../fonts/InterTight/InterTight-Regular.woff') format('woff'),
         url('../fonts/InterTight/InterTight-Regular.woff2') format('woff2');
     font-display: swap;
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'InterTight';
-    src: local('InterTight'), local(''),
+    src: local('InterTight SemiBold'), local('InterTight-SemiBold'),
         url('../fonts/InterTight/InterTight-Regular.woff') format('woff'),
         url('../fonts/InterTight/InterTight-Regular.woff2') format('woff2');
     font-display: swap;
@@ -428,7 +428,7 @@ body {
     font-weight: 500;
     line-height: 100%;
     padding: 15px 35px;
-
+    transition: background-color .2s ease, color .2s ease;
 }
 
 .btn_color {
@@ -441,6 +441,7 @@ body {
     line-height: 100%;
     padding: 15px 35px;
     border-radius: 60px;
+    transition: background-color .2s ease, color .2s ease;
 }
 
 
@@ -819,13 +820,15 @@ body {
 .chek-artivle__doctor {
     margin-bottom: 37px;
 }
-.chek-artivle__img{
+
+.chek-artivle__img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
     object-position: center;
 }
+
 .content {
     margin-bottom: 30px;
 }
@@ -844,15 +847,18 @@ body {
     height: 51px;
     width: 160px;
 }
-.logo-img{
+
+.logo-img {
     height: 100%;
     width: 100%;
 }
-.logo-img{
+
+.logo-img {
     height: 46px;
     width: 167px;
 }
-.text-width{
+
+.text-width {
     font-weight: 600;
 }
 
@@ -861,6 +867,10 @@ body {
 /* .header {
     background-color: #EEF6F9;
 } */
+
+.header__mobile-search {
+    display: none;
+}
 
 .header_logo {
     display: flex;
@@ -1053,7 +1063,8 @@ a:visited {
 .banner {
     background: linear-gradient(180.00deg, rgb(255, 255, 255), rgb(238, 246, 249) 100%);
 }
-.banner-offset{
+
+.banner-offset {
     margin-bottom: 200px;
 }
 
@@ -1235,7 +1246,8 @@ a:visited {
     display: flex;
     gap: 10px;
 }
-.banner__block-right{
+
+.banner__block-right {
     padding-top: 30px;
 }
 
@@ -1314,12 +1326,13 @@ a:visited {
 }
 
 /* paid-services */
-.paid-services__wrapper{
+.paid-services__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
 }
+
 .paid-services__block {
     padding: 30px;
     display: flex;
@@ -1333,9 +1346,8 @@ a:visited {
     color: #1E1E1E;
     font-weight: 500;
 }
-.paid-services__btn{
 
-}
+.paid-services__btn {}
 
 /* our-center */
 
@@ -1357,13 +1369,15 @@ a:visited {
 .our-center__slider {
     margin-bottom: 40px;
 }
-.our-center__wrapper{
+
+.our-center__wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
     align-items: center;
 }
-.our-center__btn{
+
+.our-center__btn {
     width: fit-content;
 }
 
@@ -1458,13 +1472,15 @@ a:visited {
 .documents__slider {
     margin-bottom: 40px;
 }
-.license__container-wrapper{
+
+.license__container-wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
     align-items: center;
 }
-.license__btn{
+
+.license__btn {
     width: fit-content;
 }
 
@@ -1605,9 +1621,11 @@ a:visited {
 .reviews__client-name {
     padding-left: 44px;
 }
-.reviews_padding{
+
+.reviews_padding {
     padding-bottom: 100px;
 }
+
 .rating__stars {
     display: flex;
     gap: 5px;
@@ -1663,7 +1681,8 @@ a:visited {
 .reviews__descr {
     max-width: 370px;
 }
-.reviews__wrapper{
+
+.reviews__wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -1678,16 +1697,19 @@ a:visited {
 .reviews__slider {
     margin-bottom: 40px;
 }
-.reviews__btn{
+
+.reviews__btn {
     width: fit-content;
 }
 
 .review.swiper-slide-active .reviews__block-fon {
-    background: linear-gradient(138.65deg, rgba(46, 110, 116, 0.2) 51.034%,rgba(255, 255, 255, 0.12) 95.365%),rgb(47, 107, 117);
+    background: linear-gradient(138.65deg, rgba(46, 110, 116, 0.2) 51.034%, rgba(255, 255, 255, 0.12) 95.365%), rgb(47, 107, 117);
 }
+
 .review.swiper-slide-active .reviews__block-fon::after {
     background-image: url("../img/triangle-hov.svg");
 }
+
 .review.swiper-slide-active .reviews__name-services {
     color: #FFFFFC;
 }
@@ -1695,6 +1717,7 @@ a:visited {
 .review.swiper-slide-active .reviews__descr {
     color: #FFFFFF;
 }
+
 .swiper-slide-active .reviews__img svg path {
     fill: #2F6B75;
 }
@@ -2498,7 +2521,8 @@ a:visited {
 .drug-centers {
     background-color: #EEF6F9;
 }
-.drug-centers_color{
+
+.drug-centers_color {
     background: linear-gradient(180.00deg, rgb(255, 255, 255), rgb(238, 246, 249) 100%);
     padding-bottom: 90px;
 }
@@ -2540,12 +2564,14 @@ a:visited {
 .drug-centers__gray_descr {
     margin-bottom: 30px;
 }
-.drug-centers__search{
+
+.drug-centers__search {
     display: flex;
     gap: 10px;
     margin-bottom: 30px;
 }
-.drug-centers__input{
+
+.drug-centers__input {
     padding: 20px 25px;
     border: 1px solid #EAEAEA;
     color: #9D9D9D;
@@ -2588,25 +2614,68 @@ a:visited {
     border: 1px solid #EAEAEA;
     height: 130px;
 }
-.consultation__btn-file{
+
+.consultation__btn-file {
     display: flex;
     gap: 4px;
 }
-.consultation__btn-file_descr{
+
+.consultation__btn-file_descr {
     color: #2F6B75;
+}
+
+/* .our-promotions__container_wrapper {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 20px;
+}
+
+.our-promotions__container_wrapper .stocks__slide:nth-child(2n - 1) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.our-promotions__container_wrapper .stocks__slide:nth-child(2n) {
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+.our-promotions__container_wrapper .stocks__slide:nth-child(3n) {
+    grid-column-start: 6;
+    grid-column-end: 9;
+} */
+
+.our-promotions__container_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.our-promotions__container_wrapper .stocks__slide:nth-child(2n - 1) {
+    flex: 0 1 calc(40% - 14px);
+}
+
+.our-promotions__container_wrapper .stocks__slide:nth-child(2n) {
+    flex: 0 1 calc(25% - 14px);
+}
+
+.our-promotions__container_wrapper .stocks__slide:nth-child(3n) {
+    flex: 0 1 calc(35% - 14px);
 }
 
 /* our-specialists */
 .our-specialists__descr {
     margin-bottom: 30px;
 }
-.our-specialists__wrapper{
+
+.our-specialists__wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
     align-items: center;
 }
-.our-specialists__btn{
+
+.our-specialists__btn {
     width: fit-content;
 }
 
@@ -2682,13 +2751,15 @@ a:visited {
 .reviews-doctor {
     background-color: #EEF6F9;
 }
-.reviews-doctor__wrapper{
+
+.reviews-doctor__wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
     align-items: center;
 }
-.reviews-doctor__btn{
+
+.reviews-doctor__btn {
     background-color: #EEF6F9;
 }
 
@@ -2867,11 +2938,10 @@ a:visited {
 
 @media(min-width:1200px) {
     /* glob */
-
     .btn:hover {
         background-color: #07414B;
-        transition: background-color .2s ease;
     }
+
     .visible_btn svg path:hover {
         fill: #FFFFFF;
         fill-opacity: initial;
@@ -2882,7 +2952,6 @@ a:visited {
         background-color: #94C6C3;
         color: #FFFFFF;
         border: 1px solid #94C6C3;
-        transition: background-color .5s ease, border-color .2s ease;
     }
 
     .slider-btn svg:hover {
@@ -2959,6 +3028,7 @@ a:visited {
         transition: .2 ease;
         top: 40%;
     }
+
     .city__link:hover {
         color: #2F6B75;
         transition: .2s ease;
@@ -2969,7 +3039,7 @@ a:visited {
 
     /* glob */
     .logo-img {
-       height: 100%;
+        height: 100%;
     }
 
     .popup__search {
@@ -3181,10 +3251,12 @@ a:visited {
         line-height: 8.2px;
         max-width: 109px;
     }
-    .header_logo{
+
+    .header_logo {
         align-items: center;
     }
-    .logo_link{
+
+    .logo_link {
         height: 100%;
     }
 
@@ -3250,6 +3322,10 @@ a:visited {
         gap: 5px;
         align-items: start;
     }
+
+    .header__mobile-search.active {
+        display: block;
+    } 
 
     .header__connection {
         display: flex;
@@ -3362,7 +3438,7 @@ a:visited {
         text-align: center;
     }
 
-    
+
 
     .banner__container-wrapper {
         flex-direction: column;
@@ -3373,11 +3449,11 @@ a:visited {
     .banner_img-link-1 {
         transform: initial;
     }
-    
+
     .banner_img-link-4 {
         transform: initial;
     }
-    
+
 
     .link-wrapper {
         flex-direction: row;
@@ -3475,9 +3551,9 @@ a:visited {
     }
 
     .geolocation__info-img {
-       width: 50%;
-       opacity: 50%;
-       display: none;
+        width: 50%;
+        opacity: 50%;
+        display: none;
     }
 
     .geolocation__wrapper {
@@ -3533,16 +3609,19 @@ a:visited {
 
     /* spice */
     .spice__container-wrapper {
-       grid-template-columns: repeat(1, 1fr);
-       gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
     }
-    .spice__form-block{
+
+    .spice__form-block {
         padding: 60px 0;
         background-color: initial;
     }
-    .spice__picture{
+
+    .spice__picture {
         height: 181px;
     }
+
     .mistake {
         padding: 40px 0 60px;
     }
@@ -3764,20 +3843,22 @@ a:visited {
         background-color: initial;
         padding: 0;
     }
-    .sorbents__internal-block{
+
+    .sorbents__internal-block {
         float: none;
         margin-right: 0;
         padding: 20px;
         margin-top: 30px;
-        margin-bottom: 30px;    
+        margin-bottom: 30px;
     }
+
     /* consultation__wrapper */
-    .consultation__wrapper{
+    .consultation__wrapper {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-   
+
 }
 
 @media(max-width:765px) {
@@ -3788,11 +3869,13 @@ a:visited {
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
     }
-    .btn_color{
+
+    .btn_color {
         font-size: 12px;
         padding: 15px 25px;
     }
-    .btn{
+
+    .btn {
         font-size: 12px;
         padding: 15px 25px;
     }
@@ -3810,12 +3893,14 @@ a:visited {
         flex-direction: column;
         gap: 10px;
     }
+
     .banner__block-img {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-    .logo_link{
+
+    .logo_link {
         height: 46px;
         width: 167px;
     }
@@ -3850,14 +3935,17 @@ a:visited {
     .calculator__picture {
         height: 230px;
     }
-    .calculator__checbox-wrapper{
+
+    .calculator__checbox-wrapper {
         flex-direction: column;
     }
-    .text-block__picture{
+
+    .text-block__picture {
         min-width: initial;
         height: 180px;
     }
-    .text-block__picture-2{
+
+    .text-block__picture-2 {
         height: 180px;
     }
 }
@@ -3899,30 +3987,37 @@ a:visited {
         grid-template-columns: repeat(1, 1fr);
         gap: 25px;
     }
-    .header__wrapper-head{
+
+    .header__wrapper-head {
         gap: 8px;
     }
-    .header_logo{
+
+    .header_logo {
         gap: 2px;
     }
-    .chek-artivle{
+
+    .chek-artivle {
         padding: 15px;
     }
 
-    .chek-artivle__picture{
+    .chek-artivle__picture {
         height: 136px;
         width: 120px;
     }
-    .chek-artivle__doctor-descr{
+
+    .chek-artivle__doctor-descr {
         margin-bottom: 10px;
     }
-    .chek-artivle__doctor{
+
+    .chek-artivle__doctor {
         margin-bottom: 12px;
     }
-    .chek-artivle__date{
+
+    .chek-artivle__date {
         flex-wrap: wrap;
     }
-    .content-descr{
+
+    .content-descr {
         font-size: 12px;
     }
 
@@ -3934,15 +4029,18 @@ a:visited {
     .about-us__block {
         border-right: none;
     }
+
     /* drug-centers */
-    .drug-centers__input{
+    .drug-centers__input {
         width: 100%;
     }
-    .drug-centers__search{
+
+    .drug-centers__search {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
+
     /* footer */
     .footer__menu {
         padding: 13px 20px;
