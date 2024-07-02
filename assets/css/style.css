@@ -1,4 +1,3 @@
-
 /* reset styles */
 * {
     padding: 0;
@@ -131,6 +130,7 @@ body {
     color: #1E1E1E;
     margin-bottom: 40px;
 }
+
 .visible-descr {
     color: #AEAEAE;
 }
@@ -342,7 +342,7 @@ body {
 
 .content-body a {
     color: #6E6E6E;
-  
+
     width: 400;
     font-size: 14px;
     line-height: 16.8px;
@@ -389,7 +389,7 @@ body {
     border-radius: 60px;
     background-color: #2F6B75;
     color: rgb(255, 255, 255);
-  
+
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;
@@ -401,7 +401,7 @@ body {
     border: 1px solid #2F6B75;
     background-color: #fff;
     color: rgb(47, 107, 117);
-  
+
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;
@@ -453,7 +453,7 @@ body {
     bottom: 8px;
 }
 
-.visible_btn{
+.visible_btn {
     display: flex;
     gap: 5px;
     align-items: center;
@@ -461,7 +461,7 @@ body {
 
 .top__adres-descr {
     color: rgb(255, 255, 255);
-  
+
     font-size: 14px;
     font-weight: 400;
     line-height: 100%;
@@ -475,7 +475,7 @@ body {
     line-height: 17px;
 } */
 .large-descr {
-  
+
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
@@ -487,7 +487,7 @@ body {
 }
 
 .num {
-  
+
     font-weight: 500;
     font-size: 14px;
     line-height: 16.8px;
@@ -587,10 +587,12 @@ body {
     width: 34px;
     height: 34px;
 }
-.popup__wrapper-input{
+
+.popup__wrapper-input {
     display: flex;
     gap: 5px;
 }
+
 .form__popup {
     display: flex;
     flex-direction: column;
@@ -689,7 +691,8 @@ body {
     width: 640px;
     padding: 50px 50px;
 }
-.review-popup .popup__content{
+
+.review-popup .popup__content {
     width: 1080px;
     padding: 50px 50px;
 }
@@ -875,7 +878,7 @@ body {
 
 .phone-link {
     color: rgb(30, 30, 30);
-  
+
     font-size: 20px;
     font-weight: 600;
     line-height: 110%;
@@ -951,7 +954,7 @@ body {
 }
 
 .main-menu__text {
-  
+
     color: rgb(46, 46, 46);
     font-size: 16px;
     font-weight: 500;
@@ -1005,7 +1008,7 @@ a:visited {
 }
 
 .main-menu__sub-text {
-  
+
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
@@ -1070,7 +1073,7 @@ a:visited {
 
 .banner__block-img_name-descr {
     color: rgb(30, 30, 30);
-  
+
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
@@ -1122,7 +1125,7 @@ a:visited {
 }
 
 .banner__large-descr {
-  
+
     font-size: 24px;
     font-weight: 400;
     line-height: 28.8px;
@@ -1145,7 +1148,7 @@ a:visited {
 .banner__internal-block_descr {
     max-width: 110px;
     color: rgb(30, 30, 30);
-  
+
     font-size: 18px;
     font-weight: 400;
     line-height: 110%;
@@ -1157,7 +1160,7 @@ a:visited {
 
 .gray_descr {
     color: rgb(174, 174, 174);
-  
+
     font-size: 14px;
     font-weight: 400;
     line-height: 120%;
@@ -1240,7 +1243,7 @@ a:visited {
 }
 
 .services__block-title-descr {
-  
+
     font-weight: 400;
     font-size: 20px;
     line-height: 20px;
@@ -1398,7 +1401,7 @@ a:visited {
 
 .specialists__experience-descr {
     color: rgb(255, 255, 255);
-  
+
     font-size: 14px;
     font-weight: 500;
     line-height: 16.8px;
@@ -1729,25 +1732,22 @@ a:visited {
     background: #D4E8EF;
     vertical-align: sub;
     position: relative;
-    top: -2px;
     margin-right: 8px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.calculator__input-checbox:checked+.castom-checbox {
+    background-color: #2F6B75;
 }
 
 .calculator__label {
     font-size: 14px;
     line-height: 14px;
     font-weight: 400;
-}
-
-.castom-checbox::before {
-    display: inline-block;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: #2F6B75;
-    position: absolute;
-    transform: scale(0);
-    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .castom-checbox_item {
@@ -1774,14 +1774,6 @@ a:visited {
     /* background-image: url("../img/vector.svg"); */
     background-repeat: no-repeat;
     background-size: color;
-}
-
-.calculator__input-checbox:checked+.castom-checbox_item::before {
-    transform: scale(1);
-}
-
-.calculator__input-checbox:checked+.castom-checbox::before {
-    transform: scale(1);
 }
 
 .calculator__btn {
@@ -1834,7 +1826,7 @@ a:visited {
     border-radius: 60px;
     background: rgb(212, 232, 239);
     color: rgb(153, 172, 174);
-  
+
     font-size: 14px;
     font-weight: 500;
     line-height: 100%;
@@ -1897,7 +1889,7 @@ a:visited {
     border-radius: 60px;
     background: rgb(212, 232, 239);
     color: rgb(153, 172, 174);
-  
+
     font-size: 14px;
     font-weight: 500;
     line-height: 100%;
@@ -2023,7 +2015,12 @@ a:visited {
     border-radius: 20px;
     overflow: hidden;
 }
-.geolocation__phone{
+
+.consultation .geolocation__map {
+    height: 100%;
+}
+
+.geolocation__phone {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -2684,6 +2681,7 @@ a:visited {
     width: 100%;
     border-radius: 20px;
     object-fit: cover;
+    object-position: top;
 }
 
 .doctor__info-exp {
@@ -2724,14 +2722,13 @@ a:visited {
 }
 
 .reviews-doctor__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
+    margin-bottom: 40px;
 }
 
 .reviews-doctor__btn {
     background-color: #EEF6F9;
+    margin: 0 auto;
+    display: block;
 }
 
 /* 404 */
@@ -2822,7 +2819,7 @@ a:visited {
 
 .detalis-link {
     color: rgb(47, 107, 117);
-  
+
     font-size: 12px;
     font-weight: 500;
     line-height: 120%;
@@ -2908,6 +2905,7 @@ a:visited {
 
 
 @media(min-width:1200px) {
+
     /* glob */
     .btn:hover {
         background-color: #07414B;
@@ -2918,10 +2916,12 @@ a:visited {
         fill-opacity: initial;
         transition: .2s ease;
     }
+
     .visible_btn p:hover {
         color: #FFFFFF;
         transition: .2s ease;
     }
+
     .btn_color:hover {
         background-color: #94C6C3;
         color: #FFFFFF;
@@ -3023,10 +3023,12 @@ a:visited {
     .cities-popup .popup__content {
         padding: 40px 20px;
     }
-    .popup__wrapper-input{
+
+    .popup__wrapper-input {
         display: flex;
         flex-direction: column;
     }
+
     .popup__title {
         font-size: 32px;
         line-height: 35px;
@@ -3299,21 +3301,24 @@ a:visited {
     .header__mobile-search.active {
         display: block;
     }
-    .mobile-search{
+
+    .mobile-search {
         position: relative;
         margin-bottom: 20px;
     }
-    .mobile-search__input{
+
+    .mobile-search__input {
         padding: 15px 16.5px;
         border-radius: 60px;
         background-color: #FFFFFF;
         width: 100%;
     }
-    .mobile-search__btn{
+
+    .mobile-search__btn {
         position: absolute;
         right: 16.5px;
         top: 15px;
-    } 
+    }
 
     .header__connection {
         display: flex;
@@ -3569,7 +3574,8 @@ a:visited {
         text-align: start;
         justify-content: initial;
     }
-    .footer__width-descr-2{
+
+    .footer__width-descr-2 {
         text-align: left;
     }
 
@@ -3654,7 +3660,7 @@ a:visited {
         order: 2;
         height: 300px;
     }
-   
+
     /* header */
     .header_bottom {
         position: fixed;
@@ -3851,6 +3857,47 @@ a:visited {
         gap: 10px;
     }
 
+    /* contacts-page */
+    .consultation .geolocation__map {
+        height: 200px;
+    }
+
+    /* reviews */
+    .reviews-doctor__wrapper {
+        display: flex!important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 16px;
+    }
+
+    .reviews-doctor__wrapper::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    .review {
+        flex: 0 0 300px;
+    }
+
+    /* doctor-detail */
+    .doctor__info-block {
+        display: contents;
+    }
+
+    .doctor__container-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .doctor__title {
+        order: -2;
+    }
+
+    .doctor__picture {
+        order: -1;
+        margin-bottom: 20px;
+    }
 }
 
 @media(max-width:765px) {
@@ -3940,6 +3987,7 @@ a:visited {
     .text-block__picture-2 {
         height: 180px;
     }
+
     .footer__conection {
         flex-direction: column;
         flex-wrap: wrap;
