@@ -1,33 +1,3 @@
-/* fonts */
-@font-face {
-    font-family: 'InterTight';
-    src: local('InterTight Regular'), local('InterTight-Regular'),
-        url('../fonts/InterTight/InterTight-Regular.woff') format('woff'),
-        url('../fonts/InterTight/InterTight-Regular.woff2') format('woff2');
-    font-display: swap;
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'InterTight';
-    src: local('InterTight Medium'), local('InterTight-Medium'),
-        url('../fonts/InterTight/InterTight-Regular.woff') format('woff'),
-        url('../fonts/InterTight/InterTight-Regular.woff2') format('woff2');
-    font-display: swap;
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'InterTight';
-    src: local('InterTight SemiBold'), local('InterTight-SemiBold'),
-        url('../fonts/InterTight/InterTight-Regular.woff') format('woff'),
-        url('../fonts/InterTight/InterTight-Regular.woff2') format('woff2');
-    font-display: swap;
-    font-weight: 600;
-    font-style: normal;
-}
 
 /* reset styles */
 * {
@@ -148,7 +118,6 @@ body {
 }
 
 .section-descr {
-    font-family: 'InterTight';
     font-size: 18px;
     font-weight: 400;
     line-height: 25.2px;
@@ -156,14 +125,12 @@ body {
 }
 
 .section-title {
-    font-family: 'InterTight';
     font-size: 42px;
     font-weight: 500;
     line-height: 46.2px;
     color: #1E1E1E;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
-
 .visible-descr {
     color: #AEAEAE;
 }
@@ -173,7 +140,6 @@ body {
 }
 
 .width-descr {
-    font-family: 'InterTight';
     font-weight: 400;
     font-size: 16px;
     line-height: 20.8px;
@@ -198,8 +164,8 @@ body {
 
 .tab {
     padding: 14px 16px;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 400;
     line-height: 16px;
     width: 100%;
     background-color: #F8F8F8;
@@ -376,7 +342,7 @@ body {
 
 .content-body a {
     color: #6E6E6E;
-    font-family: "InterTight";
+  
     width: 400;
     font-size: 14px;
     line-height: 16.8px;
@@ -423,7 +389,7 @@ body {
     border-radius: 60px;
     background-color: #2F6B75;
     color: rgb(255, 255, 255);
-    font-family: "InterTight";
+  
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;
@@ -435,7 +401,7 @@ body {
     border: 1px solid #2F6B75;
     background-color: #fff;
     color: rgb(47, 107, 117);
-    font-family: "InterTight";
+  
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;
@@ -487,7 +453,7 @@ body {
     bottom: 8px;
 }
 
-.top__visible {
+.visible_btn{
     display: flex;
     gap: 5px;
     align-items: center;
@@ -495,21 +461,21 @@ body {
 
 .top__adres-descr {
     color: rgb(255, 255, 255);
-    font-family: "InterTight";
+  
     font-size: 14px;
     font-weight: 400;
     line-height: 100%;
 }
 
 /* .width-descr{
-    font-family: "InterTight";
+  
     color: rgb(255, 255, 255);
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
 } */
 .large-descr {
-    font-family: "InterTight";
+  
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
@@ -521,7 +487,7 @@ body {
 }
 
 .num {
-    font-family: "InterTight";
+  
     font-weight: 500;
     font-size: 14px;
     line-height: 16.8px;
@@ -621,7 +587,10 @@ body {
     width: 34px;
     height: 34px;
 }
-
+.popup__wrapper-input{
+    display: flex;
+    gap: 5px;
+}
 .form__popup {
     display: flex;
     flex-direction: column;
@@ -718,7 +687,11 @@ body {
 
 .send-popup .popup__content {
     width: 640px;
-    padding: 50px 102px;
+    padding: 50px 50px;
+}
+.review-popup .popup__content{
+    width: 1080px;
+    padding: 50px 50px;
 }
 
 .review-full-popup__name {
@@ -839,7 +812,7 @@ body {
 }
 
 .section-log_img {
-    height: 23px;
+    height: 19px;
     width: 92px;
 }
 
@@ -889,11 +862,11 @@ body {
 
 .title_color {
     color: #2F6B75;
+    font-weight: 600;
 }
 
 .logo_descr {
-    font-family: "InterTight";
-    font-weight: 400px;
+    font-weight: 400;
     line-height: 15.4px;
     font-size: 14px;
     max-width: 228px;
@@ -902,7 +875,7 @@ body {
 
 .phone-link {
     color: rgb(30, 30, 30);
-    font-family: "InterTight";
+  
     font-size: 20px;
     font-weight: 600;
     line-height: 110%;
@@ -978,7 +951,7 @@ body {
 }
 
 .main-menu__text {
-    font-family: "InterTight";
+  
     color: rgb(46, 46, 46);
     font-size: 16px;
     font-weight: 500;
@@ -1032,7 +1005,7 @@ a:visited {
 }
 
 .main-menu__sub-text {
-    font-family: "InterTight";
+  
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
@@ -1058,6 +1031,7 @@ a:visited {
 .header__gray_descr {
     max-width: 471px;
 }
+
 
 /* banner */
 .banner {
@@ -1096,7 +1070,7 @@ a:visited {
 
 .banner__block-img_name-descr {
     color: rgb(30, 30, 30);
-    font-family: "InterTight";
+  
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
@@ -1140,16 +1114,15 @@ a:visited {
 
 
 .banner-title {
-    font-family: "InterTight";
     font-size: 46px;
     font-weight: 500;
     line-height: 110%;
     margin-bottom: 30px;
-    max-width: 673px;
+    max-width: 700px;
 }
 
 .banner__large-descr {
-    font-family: "InterTight";
+  
     font-size: 24px;
     font-weight: 400;
     line-height: 28.8px;
@@ -1172,7 +1145,7 @@ a:visited {
 .banner__internal-block_descr {
     max-width: 110px;
     color: rgb(30, 30, 30);
-    font-family: "InterTight";
+  
     font-size: 18px;
     font-weight: 400;
     line-height: 110%;
@@ -1184,7 +1157,7 @@ a:visited {
 
 .gray_descr {
     color: rgb(174, 174, 174);
-    font-family: "InterTight";
+  
     font-size: 14px;
     font-weight: 400;
     line-height: 120%;
@@ -1267,7 +1240,7 @@ a:visited {
 }
 
 .services__block-title-descr {
-    font-family: "InterTight";
+  
     font-weight: 400;
     font-size: 20px;
     line-height: 20px;
@@ -1425,7 +1398,7 @@ a:visited {
 
 .specialists__experience-descr {
     color: rgb(255, 255, 255);
-    font-family: "InterTight";
+  
     font-size: 14px;
     font-weight: 500;
     line-height: 16.8px;
@@ -1861,7 +1834,7 @@ a:visited {
     border-radius: 60px;
     background: rgb(212, 232, 239);
     color: rgb(153, 172, 174);
-    font-family: "InterTight";
+  
     font-size: 14px;
     font-weight: 500;
     line-height: 100%;
@@ -1924,7 +1897,7 @@ a:visited {
     border-radius: 60px;
     background: rgb(212, 232, 239);
     color: rgb(153, 172, 174);
-    font-family: "InterTight";
+  
     font-size: 14px;
     font-weight: 500;
     line-height: 100%;
@@ -1985,8 +1958,7 @@ a:visited {
 }
 
 .articles-btn {
-    max-width: 175px;
-    max-height: 45px;
+    width: fit-content;
     margin-bottom: 26px;
 }
 
@@ -2006,13 +1978,6 @@ a:visited {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-}
-
-.geolocation__phone-link {
-    font-size: 18px;
-    line-height: 19.8px;
-    font-weight: 600;
-    color: #2F6B75;
 }
 
 .geolocation__wrapper {
@@ -2057,6 +2022,11 @@ a:visited {
     height: 471px;
     border-radius: 20px;
     overflow: hidden;
+}
+.geolocation__phone{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .geolocation__phone-link {
@@ -2212,7 +2182,7 @@ a:visited {
 }
 
 .banner-samara__title {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 46px;
     line-height: 50.6px;
     margin-bottom: 40px;
@@ -2459,7 +2429,6 @@ a:visited {
 
 .prices__title {
     font-size: 46px;
-    font-weight: 600;
     line-height: 50.6px;
     margin-bottom: 30px;
     max-width: 1180px;
@@ -2506,6 +2475,7 @@ a:visited {
 
 .contacts__descr {
     margin-bottom: 30px;
+    max-width: 560px;
 }
 
 .contacts__picture {
@@ -2706,13 +2676,14 @@ a:visited {
 }
 
 .doctor__picture {
-    max-height: 375px;
+    height: 375px;
 }
 
 .doctor__img {
     height: 100%;
     width: 100%;
     border-radius: 20px;
+    object-fit: cover;
 }
 
 .doctor__info-exp {
@@ -2795,7 +2766,7 @@ a:visited {
 
 .footer_logo {
     display: flex;
-    align-self: center;
+    align-items: center;
     gap: 6px;
 }
 
@@ -2851,7 +2822,7 @@ a:visited {
 
 .detalis-link {
     color: rgb(47, 107, 117);
-    font-family: "InterTight";
+  
     font-size: 12px;
     font-weight: 500;
     line-height: 120%;
@@ -2947,7 +2918,10 @@ a:visited {
         fill-opacity: initial;
         transition: .2s ease;
     }
-
+    .visible_btn p:hover {
+        color: #FFFFFF;
+        transition: .2s ease;
+    }
     .btn_color:hover {
         background-color: #94C6C3;
         color: #FFFFFF;
@@ -2989,10 +2963,6 @@ a:visited {
     /* .main-menu__sub-item:hover>.main-menu__sub-link {
         background-color: #2F6B75;
     } */
-    .visible-descr:hover {
-        color: #FFFFFF;
-        transition: .2s ease;
-    }
 
     .question__title-decor svg:focus {
         fill: #2F6B75;
@@ -3053,7 +3023,10 @@ a:visited {
     .cities-popup .popup__content {
         padding: 40px 20px;
     }
-
+    .popup__wrapper-input{
+        display: flex;
+        flex-direction: column;
+    }
     .popup__title {
         font-size: 32px;
         line-height: 35px;
@@ -3325,6 +3298,21 @@ a:visited {
 
     .header__mobile-search.active {
         display: block;
+    }
+    .mobile-search{
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .mobile-search__input{
+        padding: 15px 16.5px;
+        border-radius: 60px;
+        background-color: #FFFFFF;
+        width: 100%;
+    }
+    .mobile-search__btn{
+        position: absolute;
+        right: 16.5px;
+        top: 15px;
     } 
 
     .header__connection {
@@ -3573,13 +3561,16 @@ a:visited {
     /* footer */
     .footer_logo {
         flex-direction: column;
-
+        align-items: flex-start;
     }
 
     .footer__info {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
         justify-content: initial;
+    }
+    .footer__width-descr-2{
+        text-align: left;
     }
 
     .footer__phone-link {
@@ -3661,8 +3652,9 @@ a:visited {
 
     .doctor__picture {
         order: 2;
+        height: 300px;
     }
-
+   
     /* header */
     .header_bottom {
         position: fixed;
@@ -3947,6 +3939,12 @@ a:visited {
 
     .text-block__picture-2 {
         height: 180px;
+    }
+    .footer__conection {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: start;
     }
 }
 
