@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="assets/css/build/swiper.css">
     <link rel="stylesheet" href="assets/css/build/fancybox.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/build/aos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script defer src="assets/js/build/swiper.js"></script>
     <script defer src="assets/js/build/mask.js"></script>
     <script defer src="assets/js/build/fancybox.js"></script>
+    <script defer src="assets/js/build/aos.js"></script>
     <script defer src="assets/js/main.js"></script>
     <link rel="icon" type="assets/img/fav.svg" href="assets/img/fav.svg">
-    <title>Страница врача</title>
+    <title>Стрпница врача</title>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             let flagMap = false;
@@ -634,7 +635,7 @@
                 </li>
             </ul>
         </div>
-        <section class="doctor section-offset">
+        <section class="doctor section-offset" data-aos="fade-up" data-aos-duration="600">
             <div class="doctor__container container">
                 <div class="doctor__container-wrapper">
                     <picture class="doctor__picture">
@@ -668,7 +669,7 @@
                 </div>
             </div>
         </section>
-        <section class="schedule section-offset">
+        <section class="schedule section-offset" data-aos="fade-up" data-aos-duration="600">
             <div class="schedule__container container">
                 <div class="schedule__ttile-wrapper">
                     <h3 class="schedule__section-title section-title">Расписание врача</h3>
@@ -706,7 +707,7 @@
                 </div>
             </div>
         </section>
-        <section class="documents section-offset">
+        <section class="documents section-offset" data-aos="fade-right" data-aos-duration="600">
             <div class="documents__container container">
                 <h2 class="documents__title section-title">
                     Лицензии
@@ -802,7 +803,7 @@
                 </div>
             </div>
         </section>
-        <section class="reviews-doctor section-offset section-offset_padding">
+        <section class="reviews-doctor section-offset section-offset_padding" data-aos="fade-right" data-aos-duration="600">
             <div class="reviews-doctor__container container">
                 <h3 class="reviews-doctor__title section-title">Отзывы о Петрове Иване Ивановиче</h3>
                 <div class="reviews-doctor__wrapper grid-3-20">
@@ -1124,7 +1125,7 @@
                 </button>
             </div>
         </section>
-        <section class="articles section-offset">
+        <section class="articles section-offset" data-aos="fade-up" data-aos-duration="600">
             <div class="articles__container container">
                 <h2 class="articles-title section-title">Статьи о зависимостях</h2>
                 <div class="articles__slider-container slider-container">
@@ -1141,9 +1142,12 @@
                                         неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
                                     <button class="articles-btn btn">Читать статью</button>
                                     <div class="articles__data-info">
+                                        <div class="articles__data">
                                         <p class="num">
                                             12.04.2024
                                         </p>
+                                        <p class="articles__date-red date-red">ред. 8.05.2024</p>
+                                    </div>
                                         <div class="views">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1169,9 +1173,12 @@
                                         неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
                                     <button class="articles-btn btn">Читать статью</button>
                                     <div class="articles__data-info">
-                                        <p class="num">
-                                            12.04.2024
-                                        </p>
+                                        <div class="articles__data">
+                                            <p class="num">
+                                                12.04.2024
+                                            </p>
+                                            <p class="articles__date-red date-red">ред. 8.05.2024</p>
+                                        </div>
                                         <div class="views">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1197,9 +1204,12 @@
                                         неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
                                     <button class="articles-btn btn">Читать статью</button>
                                     <div class="articles__data-info">
-                                        <p class="num">
-                                            12.04.2024
-                                        </p>
+                                        <div class="articles__data">
+                                            <p class="num">
+                                                12.04.2024
+                                            </p>
+                                            <p class="articles__date-red date-red">ред. 8.05.2024</p>
+                                        </div>
                                         <div class="views">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1225,9 +1235,12 @@
                                         неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
                                     <button class="articles-btn btn">Читать статью</button>
                                     <div class="articles__data-info">
-                                        <p class="num">
-                                            12.04.2024
-                                        </p>
+                                        <div class="articles__data">
+                                            <p class="num">
+                                                12.04.2024
+                                            </p>
+                                            <p class="articles__date-red date-red">ред. 8.05.2024</p>
+                                        </div>
                                         <div class="views">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1253,9 +1266,12 @@
                                         неузнаваемости, из-за чего возрастает их статус бесполезности.</p>
                                     <button class="articles-btn btn">Читать статью</button>
                                     <div class="articles__data-info">
-                                        <p class="num">
-                                            12.04.2024
-                                        </p>
+                                        <div class="articles__data">
+                                            <p class="num">
+                                                12.04.2024
+                                            </p>
+                                            <p class="articles__date-red date-red">ред. 8.05.2024</p>
+                                        </div>
                                         <div class="views">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1296,7 +1312,7 @@
                 </div>
             </div>
         </section>
-        <section class="application-2 section-offset">
+        <section class="application-2 section-offset" data-aos="fade-up" data-aos-duration="600">
             <div class="application__container container">
                 <div class="application__container-wrapper">
                     <img class="application__img-fon" src="assets/img/img-fon2.png" alt="">
@@ -1317,7 +1333,7 @@
                 </div>
             </div>
         </section>
-        <section class="geolocation section-offset">
+        <section class="geolocation section-offset" data-aos="fade-up" data-aos-duration="600">
             <div class="geolocation__container container">
                 <div class="geolocation__wrapper">
                     <div class="geolocation__info">
@@ -1354,7 +1370,7 @@
             </div>
         </section>
     </main>
-    <footer class="footer ">
+    <footer class="footer " data-aos="fade-up" data-aos-duration="600">
         <div class="footer__container container">
             <div class="footer__container-wrapper">
                 <div class="footer__top grid-3-1">

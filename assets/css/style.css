@@ -207,10 +207,11 @@ body {
 
 .btn__text {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 16.94px;
     color: #2F6B75;
 }
+
 
 .price__title-btn {
     display: flex;
@@ -427,6 +428,10 @@ body {
     display: flex;
     gap: 5.3px;
     align-items: center;
+}
+.top__adres  .top__adres-descr:hover {
+    color: #94C6C3;
+    transition: .2s ease;
 }
 
 .top__location {
@@ -1197,7 +1202,7 @@ a:visited {
     padding: 20px 25px;
     border: 1px solid #9D9D9D;
     border-radius: 60px;
-    max-width: 320px;
+    width: 320px;
 }
 
 .banner__block-bottom {
@@ -1817,7 +1822,6 @@ a:visited {
     position: relative;
     width: 100%;
     appearance: none;
-    cursor: none;
 }
 
 .calculator__select-wrappepr {
@@ -1948,7 +1952,9 @@ a:visited {
 
 
 /* articles */
-
+.articles__container-wrapper{
+    margin-bottom: 40px;
+}
 .articles__block {
     border-radius: 20px;
     border: 1px solid #EAEAEA;
@@ -1973,6 +1979,14 @@ a:visited {
     width: fit-content;
     margin-bottom: 26px;
 }
+.articles__data{
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+}
+.articles__date-red{
+    color: #94C6C3;
+}
 
 .articles__data-info {
     display: flex;
@@ -1983,6 +1997,10 @@ a:visited {
 
 .articles__slider {
     margin-bottom: 40px;
+}
+.articles__btn{
+    display: block;
+    margin: 0 auto;
 }
 
 /* geolocation */
@@ -2199,7 +2217,7 @@ a:visited {
 }
 
 .banner-samara__title {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 46px;
     line-height: 50.6px;
     margin-bottom: 40px;
@@ -2315,7 +2333,7 @@ a:visited {
 }
 
 .spice__picture {
-    height: 400px;
+    height: 417px;
 }
 
 .spice__img {
@@ -2942,13 +2960,13 @@ a:visited {
         transition: .2s ease;
     }
 
-    .visible_btn svg path:hover {
+    .visible_btn:hover svg path {
         fill: #FFFFFF;
         fill-opacity: initial;
         transition: .2s ease;
     }
 
-    .visible_btn .visible-descr:hover {
+    .visible_btn:hover .visible-descr {
         color: #FFFFFF;
         transition: .2s ease;
     }
@@ -2995,7 +3013,7 @@ a:visited {
         background-color: #2F6B75;
     } */
 
-    .question__title-decor svg:focus {
+    .question__title-decor > svg:focus {
         fill: #2F6B75;
         stroke: #FFFFFF;
     }
@@ -3030,9 +3048,48 @@ a:visited {
         color: #2F6B75;
         transition: .2s ease;
     }
+    .main-menu__text:hover {
+        color: #94C6C3;
+        transition: .2s ease;
+    }
+    .header__phone-link:hover {
+        color: #2F6B75;
+    }
+    .detalis-link:hover {
+        font-size: 16px;
+        font-weight: 600;
+        transition: .2s ease;
+    }
+    
+    .email a:hover {
+        color: #94C6C3;
+        transition: .2s ease;
+    }
+    /* footer */
+    .footer__link:hover {
+        color: #94C6C3;
+        transition: .2s ease;
+    }
+    .footer__city-btn_text:hover{
+        color: #94C6C3;
+        transition: .2s ease;
+    }
+    .footer__phone-link:hover {
+        color: #94C6C3;
+        transition: .2 ease;
+    }
+    .geolocation__phone-link:hover {
+        color: #94C6C3;
+        transition: .2s ease;
+    }
 }
+
 @media(max-width:1400px){
-   
+    
+    .spice__container-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
 }
 
 @media(max-width:1024px) {
@@ -3643,13 +3700,10 @@ a:visited {
     }
 
     /* spice */
-    .spice__container-wrapper {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
-    }
+    
 
     .spice__form-block {
-        padding: 60px 0;
+        padding: 0;
         background-color: initial;
     }
 
@@ -3942,6 +3996,25 @@ a:visited {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+    .block-bottom__form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .block-bottom__input{
+        width: 100%;
+    }
+    .banner__block-bottom{
+        padding: 60px 10px;
+        margin: 0 -10px;
+        bottom: -60px;
+    } 
+    .about-us_color{
+        background-color: #EEF6F9;
+        padding: 60px 0;
+    }
+    .banner-offset{
+        margin-bottom: 60px;
+    }
 }
 
 @media(max-width:765px) {
@@ -3972,10 +4045,7 @@ a:visited {
         object-fit: cover;
     }
 
-    .block-bottom__form {
-        flex-direction: column;
-        gap: 10px;
-    }
+    
 
     .banner__block-img {
         display: grid;
@@ -4094,6 +4164,7 @@ a:visited {
 
     .chek-artivle {
         padding: 15px;
+        gap: 20px;
     }
 
     .chek-artivle__picture {

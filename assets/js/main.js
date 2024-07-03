@@ -721,6 +721,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    AOS.init({
+        once: true,
+    });
+
     new Tabs().initTabs();
     initPhoneMask();
 });
