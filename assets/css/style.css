@@ -1688,23 +1688,23 @@ a:visited {
     width: fit-content;
 }
 
-.review.swiper-slide-active .reviews__block-fon {
+.review.swiper-slide-next .reviews__block-fon {
     background: linear-gradient(138.65deg, rgba(46, 110, 116, 0.2) 51.034%, rgba(255, 255, 255, 0.12) 95.365%), rgb(47, 107, 117);
 }
 
-.review.swiper-slide-active .reviews__block-fon::after {
+.review.swiper-slide-next .reviews__block-fon::after {
     background-image: url("../img/triangle-hov.svg");
 }
 
-.review.swiper-slide-active .reviews__name-services {
+.review.swiper-slide-next .reviews__name-services {
     color: #FFFFFC;
 }
 
-.review.swiper-slide-active .reviews__descr {
+.review.swiper-slide-next .reviews__descr {
     color: #FFFFFF;
 }
 
-.swiper-slide-active .reviews__img svg path {
+.review.swiper-slide-next .reviews__img svg path {
     fill: #2F6B75;
 }
 
