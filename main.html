@@ -1247,7 +1247,7 @@
                 </div>
             </div>
         </section>
-        <section class="prices tabs-container section-offset" data-aos="fade-up" data-aos-duration="600">
+        <section class="prices tabs-container section-offset">
             <div class="prices__container container">
                 <h2 class="prices__title section-title">
                     Стоимость услуг в частной клиники современной наркологии
@@ -1732,7 +1732,7 @@
                     <img class="application__img-fon" src="assets/img/img-fon2.png" alt="">
                     <div class="application__connection-block">
                         <h3 class="application-title section-title">Дайте шанс на спасение своему близкому</h3>
-                        <p class="application__descr section-descr">ПОставьте заявку, наш специалист свяжется с вами в
+                        <p class="application__descr section-descr">Пjставьте заявку, наш специалист свяжется с вами в
                             ближайшее время</p>
                         <form class="application__from grid-3-1" action="#">
                             <input class="application_input" type="tel" placeholder="+7(999)9999999">
@@ -1741,12 +1741,12 @@
                         <p class="gray_descr">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
                     </div>
                     <picture class="application__picture">
-                        <img class="application__img" src="assets/img/section/application/application-img .png" alt="">
+                        <img class="application__img" src="assets/img/section/application/application-img.png" alt="">
                     </picture>
                 </div>
             </div>
         </section>
-        <section class="faq tabs-container section-offset" data-aos="fade-up" data-aos-duration="600">
+        <section class="faq tabs-container section-offset">
             <div class="faq__container container">
                 <h2 class="faq__title section-title">
                     Вопросы и ответы
@@ -3110,7 +3110,8 @@
                         <p class="gray_descr">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
                     </div>
                     <picture class="application__picture">
-                        <img class="application__img" src="assets/img/section/application/application-2.img.png" alt="">
+                        <source srcset="assets/img/section/application/application-img.png" media="(max-width: 1024px)" >
+                        <img class="application__img" src="assets/img/section/application/application-2.img.png" alt="sss">
                     </picture>
                 </div>
             </div>
@@ -3597,7 +3598,7 @@
                 <form action="#" class="form__popup" method="post">
                     <input class="popup__input" type="text" placeholder="Ваше имя">
                     <input class="popup__input" type="tel" placeholder="+7 (999) 999-99-99">
-                    <button class="btn">Отправить</button>
+                    <button class="btn">Получить консультацию</button>
                     <p class="popup__gray-descr">
                         Нажимая кнопку «Оставить заявку», вы соглашаетесь
                         с политикой конфиденциальности данного сайта</p>
@@ -3629,33 +3630,42 @@
         <div class="popup__body">
             <div class="popup__content">
                 <button class="popup__close close-popup">
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.87109 15.1283L15.1311 1.87207M1.87109 1.87207L15.1311 15.1283" stroke="#9D9D9D"
-                            stroke-width="2" stroke-linecap="round" />
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.00569 6.34603L8.37334 9.70984C8.55204 9.88833 8.79441 9.98861 9.04713 9.98861C9.29984 9.98861 9.54221 9.88833 9.72091 9.70984C9.89961 9.53134 10 9.28925 10 9.03682C10 8.78439 9.89961 8.5423 9.72091 8.36381L6.35199 5L9.72027 1.63619C9.80871 1.54781 9.87886 1.44289 9.92671 1.32743C9.97456 1.21197 9.99917 1.08823 9.99914 0.963269C9.99911 0.838308 9.97444 0.714576 9.92654 0.599138C9.87864 0.483701 9.80844 0.378818 9.71996 0.290478C9.63147 0.202138 9.52644 0.132071 9.41085 0.0842776C9.29525 0.0364843 9.17137 0.0119005 9.04627 0.0119299C8.92116 0.0119594 8.79729 0.0366014 8.68172 0.0844491C8.56615 0.132297 8.46115 0.202413 8.37271 0.290795L5.00569 3.6546L1.63805 0.290795C1.55022 0.199878 1.44514 0.127344 1.32895 0.0774234C1.21276 0.0275031 1.08777 0.00119689 0.961292 3.99012e-05C0.834811 -0.00111709 0.709367 0.0228981 0.592278 0.0706844C0.475188 0.118471 0.368799 0.189071 0.279318 0.278366C0.189837 0.36766 0.119056 0.473862 0.0711052 0.590772C0.023154 0.707683 -0.0010069 0.832962 3.2144e-05 0.959299C0.00107119 1.08564 0.0272893 1.2105 0.0771569 1.32661C0.127025 1.44272 0.199543 1.54774 0.29048 1.63556L3.6594 5L0.291116 8.36444C0.200178 8.45226 0.12766 8.55728 0.0777922 8.67339C0.0279246 8.7895 0.00170619 8.91436 0.000667144 9.0407C-0.000371904 9.16704 0.023789 9.29232 0.0717402 9.40923C0.119691 9.52614 0.190472 9.63234 0.279953 9.72163C0.369434 9.81093 0.475823 9.88153 0.592913 9.92932C0.710002 9.9771 0.835446 10.0011 0.961927 9.99996C1.08841 9.9988 1.21339 9.9725 1.32958 9.92258C1.44578 9.87266 1.55085 9.80012 1.63868 9.7092L5.00569 6.34603Z"
+                            fill="#00253C" />
                     </svg>
                 </button>
                 <p class="popup__title popup__title-reset">
-                    Введите текст сообщения
+                    Оставить отзыв
                 </p>
                 <p class="popup__descr gray_descr popup__title-reset">
                     Ваш адрес e-mail не будет опубликован. Все обязательные поля помечены *
                 </p>
                 <form action="#" class="form__popup" method="post">
-                    <textarea name="" id="" class="popup__textarea" placeholder="Ваш отзыв"></textarea>
+                    <textarea name="" id="" class="popup__textarea popup__textarea-review" placeholder="Введите текст сообщения"></textarea>
                     <div class="popup__wrapper-input">
                         <input class="popup__input" type="text" placeholder="Ваше имя">
                         <input class="popup__input" type="mail" placeholder="E-mail *">
                     </div>
                     <div class="popup__wrapper-btn">
                         <button class=" btn">Отправить</button>
-                        <label class="label-checbox">
+                        <label class="calculator__label calculator__label-popup">
                             <input class="checbox" type="checkbox">
-                            <span class="castom-checbox_item"></span>
-                            Сохранить мое имя, e-mail и адрес сайта в этом браузере для последующих моих комментариев
+                            <span class="castom-checbox castom-checbox_item"></span>
+                            Сохранить мое имя, e-mail и адрес сайта в этом браузере для последующих моих комментариев 
                         </label>
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div class="cookie container">
+        <div class="cookie__wrapper">
+            <p class="cookie__descr section-descr">
+                Мы используем <a class="cookie__link" href="#">файлы cookie</a>, чтобы улучшить сайт для Вас
+            </p>
+            <button class="cookie__btn">Согласен</button>
         </div>
     </div>
 </body>
