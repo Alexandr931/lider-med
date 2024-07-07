@@ -370,6 +370,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (button && button.dataset.accordionButton !== undefined) {
                 this.handleClick(button)
             }
+            setTimeout(() => {
+                AOS.refresh();
+            }, 500);
         }
     }
 
