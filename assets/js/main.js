@@ -93,48 +93,48 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-   // slider-3
-   const slider3List = document.querySelectorAll('.slider-3');
+    // slider-3
+    const slider3List = document.querySelectorAll('.slider-3');
 
-   if (slider3List.length > 0) {
-       slider3List.forEach((elem) => {
-           const slider3 = new Swiper(elem, {
-               scrollbar: {
-                   el: elem.closest('.slider-container').querySelector('.slider-scrollbar'),
-                   draggable: true,
-               },
+    if (slider3List.length > 0) {
+        slider3List.forEach((elem) => {
+            const slider3 = new Swiper(elem, {
+                scrollbar: {
+                    el: elem.closest('.slider-container').querySelector('.slider-scrollbar'),
+                    draggable: true,
+                },
 
-               navigation: {
-                   prevEl: elem.closest('.slider-container').querySelector('.slider-btn_prev'),
-                   nextEl: elem.closest('.slider-container').querySelector('.slider-btn_next'),
-               },
-               slidesPerView: 3,
-               spaceBetween: 20,
-               breakpoints: {
-                   0: {
-                       slidesPerView: 1.1,
-                       spaceBetween: 10,
-                   },
-                   575: {
-                       slidesPerView: 1.7,
-                       spaceBetween: 10,
-                   },
-                   767: {
-                       slidesPerView: 2,
-                       spaceBetween: 10,
-                   },
-                   1025: {
-                       slidesPerView: 3,
-                       spaceBetween: 15,
-                   },
-                   1200: {
-                       slidesPerView: 3,
-                       spaceBetween: 20,
-                   }
-               }
-           });
-       });
-   }
+                navigation: {
+                    prevEl: elem.closest('.slider-container').querySelector('.slider-btn_prev'),
+                    nextEl: elem.closest('.slider-container').querySelector('.slider-btn_next'),
+                },
+                slidesPerView: 3,
+                spaceBetween: 20,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1.1,
+                        spaceBetween: 10,
+                    },
+                    575: {
+                        slidesPerView: 1.7,
+                        spaceBetween: 10,
+                    },
+                    767: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    1025: {
+                        slidesPerView: 3,
+                        spaceBetween: 15,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    }
+                }
+            });
+        });
+    }
 
     // reviews slider
     const reviewsSliderList = document.querySelectorAll('.reviews__slider');
@@ -488,6 +488,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (dropdownBtnsList.length > 0) {
         dropdownBtnsList.forEach((elem) => {
+            const mainMenuItem = elem.closest('.main-menu__item')
+            if (mainMenuItem) {
+                const mainMenuText = mainMenuItem.querySelector('.main-menu__text');
+                if (mainMenuText) {
+                    elem.style.left = mainMenuText.offsetWidth + 'px';
+                }
+            }
             elem.addEventListener('click', () => {
                 if (elem.closest('.menu-item')) {
                     elem.closest('.menu-item').classList.toggle('active');
@@ -722,6 +729,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 searchJs.classList.toggle('active');
             });
         })
+    }
+
+    const infoAlert = document.querySelector('.cookie');
+
+    if (Number(localStorage.getItem('cookie-checker')) != 1) {
+        const okBtn = document.querySelector('.cookie__btn');
+        infoAlert.classList.add('show');
+        okBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.setItem('cookie-checker', '1');
+            infoAlert.classList.remove('show');
+            setTimeout(function () {
+                document.querySelector('.cookie').remove();
+            }, 1000)
+        })
+    } else {
+        document.querySelector('.cookie').remove();
     }
 
     AOS.init({
