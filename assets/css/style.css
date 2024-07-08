@@ -3593,6 +3593,9 @@ a:visited {
         font-size: 12px;
         line-height: 12px;
     }
+    .popup__title-reset{
+        text-align: center;
+    }
 
     .calculator__label-popup {
         font-size: 12px;
