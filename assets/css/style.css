@@ -5353,4 +5353,7 @@ a:visited {
     .drinking-clinic__picture {
         height: 200px;
     }
+    .cookie{
+        right: 10px;
+    }
 }
