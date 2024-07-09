@@ -170,7 +170,7 @@ body {
 .cookie {
     position: fixed;
     z-index: 1000;
-    right: 0;
+    right: 20px;
     bottom: 20px;
     max-width: 720px;
     opacity: 0;
@@ -2736,6 +2736,10 @@ a:visited {
     fill: #2F6B75;
     stroke: #FFFFFF;
 }
+.faq__accor.active .question__title svg path {
+    fill: #fff;
+    stroke: #FFFFFF;
+}
 
 .question__title-text {
     font-size: 18px;
@@ -5295,10 +5299,22 @@ a:visited {
         background-repeat: no-repeat;
         transform: rotate(360deg);
     }
-
+    .footer__phone-link{
+        font-size: 15px;
+    }
     .footer_logo .logo_link {
         height: 31px;
         width: 114px;
+    }
+    .payment__card{
+        gap: 6px;
+    }
+    .footer__payment .payment__card span svg {
+        width: 65px;
+        height: 40px;
+    }
+    .footer__phone{
+        padding-right: 10px;
     }
 
     .mistake__btn_color {
